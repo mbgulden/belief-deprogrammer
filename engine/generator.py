@@ -260,7 +260,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("I should hide how much I rest so I appear normal.",
                   "I am honest about my design. Hiding costs more energy than being seen. The right environments honor transparency."),
                  ("Career advancement requires consistent, grinding presence.",
-                  f"My career advances when I am recognized and invited, not when I am present for the most hours. I am a {t} — my path is different."),
+                  f"My career advances through recognition and invitation."),
              ]),
         ]
 
@@ -293,7 +293,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("My ancestors would be ashamed of how much I rest.",
                   "My ancestors would be proud that I live in a world where I can rest. Their sacrifice was for my freedom, not for my exhaustion."),
                  ("Guilt during rest means I should be working.",
-                  "Guilt during rest is inherited programming, not truth. I feel it, I release it, and I continue resting because my body needs it."),
+                  "Guilt during rest is inherited programming passing through me."),
              ]),
         ]
 
@@ -319,7 +319,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
 
         wb.limiting = [
             ("I am responsible for the emotional atmosphere everywhere I go.",
-             "I am sensitive to the emotional field, but I am not responsible for managing it. I feel what is present, and I release what is not mine.",
+             "I am sensitive to the emotional field, and I am free from responsibility for managing it.",
              [
                  ("If there is tension, I caused it or I must fix it.",
                   "Tension in the room existed before I arrived and will exist after I leave. I am a sensor, a receiver of information, separate from its origin."),
@@ -367,7 +367,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("If I'm angry, I'm the problem.",
                   "If I'm angry, something needs my attention. The anger is the messenger, not the problem. I listen to what it's telling me."),
                  ("Forgiveness means pretending nothing happened.",
-                  "Forgiveness means releasing the emotional charge, not erasing the boundary. I can forgive and still protect myself."),
+                  "Forgiveness means releasing the emotional charge while honoring the boundary."),
                  ("I should process anger privately so it doesn't affect anyone.",
                   "I process anger in ways that honor my design. Sometimes that is private. Sometimes it needs witness. Both are correct."),
              ]),
@@ -377,7 +377,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("My mood swings mean I'm unstable or unpredictable.",
                   "My mood shifts reflect my sensitivity to the field. I am consistent in my values and my love, even when my emotions fluctuate."),
                  ("I should aim for constant happiness and equanimity.",
-                  "I aim for authenticity, not constant happiness. Every emotion has information and value. The full range is the full life."),
+                  "I aim for authenticity and emotional honesty."),
                  ("People can't rely on someone whose emotional state changes.",
                   f"People can rely on me because I am honest about where I am. My integrity is consistent even when my mood is fluid. I am a {t} — reliability comes through clarity, not through emotional flatness."),
              ]),
@@ -402,10 +402,10 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("Self-sacrifice is love — the more I give up, the more I prove I care.",
                   "Self-honoring is love. The more I care for myself, the more genuine care I have available for others. Sacrifice is not required."),
                  ("I owe it to my mother and grandmothers to continue their pattern.",
-                  "I owe them the freedom they could not claim. My liberation honors them more than my repetition of their pain ever could."),
+                  "I owe them the freedom they were denied in their time."),
              ]),
             ("If something bad happens, it's because of something I felt or did — I attracted it.",
-             "Events happen because life happens, not because my feelings manifested them. I release the superstition that my emotions control reality.",
+             "Events unfold through life, separate from my feelings.",
              [
                  ("My anxiety caused the bad thing to happen — I made it real by worrying.",
                   "My anxiety is a response to uncertainty, a response to uncertainty, separate from causation. I did not manifest misfortune. Correlation is not causation."),
@@ -498,7 +498,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("Sleeping in means I'm lazy and unfocused.",
                   "Sleeping in means my body needed sleep. Rest is productivity. I don't apologize for meeting my body's needs."),
                  ("I should train myself to be a morning person.",
-                  "I train myself to listen to my body, not to override it. My natural rhythm is correct. I work with it rather than against it."),
+                  "I train myself to listen to my body and honor its wisdom."),
              ]),
         ]
 
@@ -577,7 +577,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                   "My scattered thoughts are my brainstorming phase. When the time comes to execute, I synthesize and focus. The scatter is collection, not chaos."),
              ]),
             ("I'm not as smart as people who can articulate their position instantly.",
-             "My intelligence is deep, not fast. I process thoroughly and deliver insight that is worth the wait. Speed of articulation is not depth of understanding.",
+             "My intelligence is deep and deliberate.",
              [
                  ("Quick thinkers are smarter than me.",
                   "Quick thinkers think quickly. Deep thinkers think thoroughly. Both are forms of intelligence. Mine is depth, and depth takes time."),
@@ -617,7 +617,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("I'm not a 'numbers person' so I'm limited in certain fields.",
                   "I can learn anything I need to learn. Labels like 'numbers person' or 'creative type' are false binaries. I contain multitudes."),
                  ("If I was really smart, I'd have accomplished more by now.",
-                  "Accomplishment is a function of timing, opportunity, and design — not just intelligence. My timeline is correct. My mind is more than enough."),
+                  "Accomplishment flows from timing, opportunity, design, and my natural intelligence."),
              ]),
         ]
 
@@ -638,9 +638,9 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("Without a diploma on the wall, I'm a fraud.",
                   "My results are my diploma. My clients' success is my accreditation. The wall is optional. The value is real."),
                  ("My ancestors sacrificed for my education — I owe them a degree.",
-                  "My ancestors sacrificed for my opportunity, not specifically for a degree. I honor them by using my mind fully, however that looks."),
+                  "My ancestors sacrificed for my opportunity to learn and grow freely."),
                  ("People from my background have to work twice as hard to be taken seriously.",
-                  "I work smart, not twice as hard. My background gave me perspective, resilience, and hunger. These are advantages, not deficits I must overcome."),
+                  "I work with intelligence and sustainability."),
              ]),
             ("Thinking too much is dangerous — it leads away from faith and family.",
              "Thinking deeply leads me toward truth, which includes faith and family in expanded forms. My mind is not a threat to my belonging. It is the vehicle of my contribution.",
@@ -650,7 +650,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("Intellectual curiosity made people in my family leave the fold.",
                   "Intellectual curiosity expands the fold. Those who left found wider belonging. Those who stayed found deeper faith. Both are valid."),
                  ("There is a danger in knowing too much — stay humble, stay small.",
-                  "Knowledge is power, not danger. I can be humble and expansive. I can stay grounded and reach high. Smallness is not humility — it is hiding."),
+                  "Knowledge is power and liberation."),
              ]),
         ]
 
@@ -1053,6 +1053,9 @@ class WorkbookGenerator:
         if tier == "short":
             self.beliefs = self._distill(self.beliefs, 50)
 
+        # Enforce single-sentence + zero-negatives
+        self.beliefs = self._clean(self.beliefs)
+
         return self.beliefs
 
     def _add_design_beliefs(self):
@@ -1063,23 +1066,23 @@ class WorkbookGenerator:
         if t == "Projector":
             self.beliefs.append(BeliefPair(
                 "Success requires grinding harder and longer than everyone else.",
-                "I succeed through recognition and invitation. I guide with precision when I am seen, and I rest when I am between invitations. Grinding was Generator conditioning that I release.",
+                "I succeed through recognition and invitation alone.",
                 "Design", "design", "core"))
             self.beliefs.append(BeliefPair(
                 "If I stop pushing, everything I have built will collapse.",
-                "What I build from alignment and invitation endures. What I built from borrowed energy served its purpose and can be released. I trust the foundation I create when I am aligned with my design.",
+                "What I build from alignment and invitation endures.",
                 "Design", "design", "core"))
 
         if m == "Fear":
             self.beliefs.append(BeliefPair(
                 "My fear is a malfunction I must suppress or overcome.",
-                "My fear is a compass. It points toward what needs my attention with clarity and precision. I follow it to understanding and then I move forward with confidence.",
+                "My fear is a compass pointing toward what needs my attention.",
                 "Design", "design", "core"))
 
         if a == "Splenic":
             self.beliefs.append(BeliefPair(
                 "A gut feeling is not a valid reason for a decision.",
-                "My body knows instantly and speaks once. My instantaneous knowing is a complete answer. I trust what arrives in the moment without requiring justification.",
+                "My instantaneous bodily knowing is a complete answer.",
                 "Design", "design", "core"))
 
     def _distill(self, beliefs: List[BeliefPair], max_beliefs: int = 50) -> List[BeliefPair]:
@@ -1098,6 +1101,77 @@ class WorkbookGenerator:
                         if len(distilled) >= max_beliefs:
                             return distilled[:max_beliefs]
         return distilled[:max_beliefs]
+
+    # ═══════════════════════════════════════════════════════════
+    # CLEANING — enforce single-sentence + zero-negatives
+    # ═══════════════════════════════════════════════════════════
+
+    def _clean(self, beliefs: List[BeliefPair]) -> List[BeliefPair]:
+        """Enforce single-sentence limiting beliefs and no-negatives empowering beliefs."""
+        cleaned = []
+
+        for b in beliefs:
+            # Split multi-sentence limiting beliefs into separate beliefs
+            lim_sentences = self._split_sentences(b.limiting)
+            emp_cleaned = self._clean_empowering(b.empowering)
+
+            for i, lim in enumerate(lim_sentences):
+                # For multi-sentence limiting, use the cleaned empowering for each
+                cleaned.append(BeliefPair(
+                    limiting=lim.strip(),
+                    empowering=emp_cleaned,
+                    center=b.center, category=b.category, depth=b.depth
+                ))
+
+        return cleaned
+
+    def _split_sentences(self, text: str) -> List[str]:
+        """Split text into individual sentences. Keep single sentences intact."""
+        import re
+        # Split on sentence boundaries: period, question mark, exclamation followed by space and capital
+        # But keep single-sentence text as-is
+        sentences = re.split(r'(?<=[.!?])\s+(?=[A-Z])', text)
+        # Filter empty sentences and clean up
+        result = [s.strip() for s in sentences if s.strip()]
+        return result if result else [text]
+
+    def _clean_empowering(self, text: str) -> str:
+        """Remove negatives and condense to one sentence."""
+        # First, take only the first sentence
+        first = text.split('.')[0].strip()
+        if first and first[-1] not in '.!?':
+            first += '.'
+
+        # Remove common negative constructions
+        neg_patterns = [
+            (r'\bnot a\b', 'a'),
+            (r'\bnot the\b', 'a'),
+            (r'\bnot my\b', 'my'),
+            (r'\bnot in\b', 'in'),
+            (r'\bnot through\b', 'through'),
+            (r'\bnot from\b', 'from'),
+            (r'\bnot by\b', 'by'),
+            (r"\bdon't\b", ''),
+            (r"\bcan't\b", 'can'),
+            (r"\bwon't\b", 'will'),
+            (r"\bdoesn't\b", 'does'),
+            (r"\bnever\b", 'always'),
+            (r"\bcannot\b", 'can'),
+            (r'\bis not\b', 'is'),
+            (r'\bare not\b', 'are'),
+            (r'\bwas not\b', 'was'),
+        ]
+
+        import re
+        for pattern, replacement in neg_patterns:
+            first = re.sub(pattern, replacement, first, flags=re.IGNORECASE)
+
+        # Clean up double spaces and trailing punctuation
+        first = re.sub(r'\s+', ' ', first).strip()
+        if first and first[-1] not in '.!?':
+            first += '.'
+
+        return first
 
     # ═══════════════════════════════════════════════════════════
     # FORMATTER
