@@ -147,7 +147,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
 
         wb.inherited = [
             ("Life is a dangerous puzzle, and it is my duty to foresee and solve every problem to keep the family safe.",
-             "Life is an experience to be lived, not a puzzle to be solved; I trust my present-moment instincts to keep my family safe.",
+             "Life is an experience to be lived fully, guided by my present-moment instincts.",
              [
                  ("If I don't anticipate every worst-case scenario, disaster will strike.",
                   "I release the burden of the future and trust my Spleen to alert me to real danger in the exact moment it's needed."),
@@ -160,7 +160,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
              "I can be deeply compassionate and supportive without taking the mental weight of others into my own energy field.",
              [
                  ("If I don't worry about their problems, it means I don't care.",
-                  "Worrying is not love; maintaining my own clear energy is the best way to care for my tribe."),
+                  "Maintaining my own clear energy is the deepest way I can care for my tribe."),
                  ("It is selfish to have a clear, peaceful mind when others are struggling.",
                   "My peaceful mind is a lighthouse for others; I serve them best by staying out of the storm."),
                  ("I am the designated sponge for my family's stress.",
@@ -207,7 +207,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("My exhaustion means I am weak and undisciplined.",
                   "My exhaustion means I have been absorbing and amplifying other people's energy. It is accurate feedback, not character failure."),
                  ("I will never be able to hold down a normal job or relationship because of this.",
-                  "I was not designed for normal. I was designed for precise, strategic impact. The right work and the right people will honor my rhythm."),
+                  "I was designed for precise, strategic impact."),
              ]),
             ("Rest must be earned — I only deserve to stop when I have produced enough visible output.",
              "Rest is my birthright and my maintenance requirement, a requirement for my wellbeing. I stop because my design requires it, and that is enough.",
@@ -225,7 +225,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("If I'm not producing, I'm taking up space I don't deserve.",
                   "I take up exactly the space I need. My presence alone has value. I contribute through presence and insight."),
                  ("The only way to prove my worth is through visible, measurable output.",
-                  "I prove my worth through clarity, guidance, recognition, and presence — things that cannot be measured in hours or units."),
+                  "I prove my worth through clarity, guidance, recognition, and presence."),
                  ("People only value me for what I can do for them.",
                   "The right people value me for who I am and what I see. What I do for them flows naturally from recognition, not from proving."),
              ]),
@@ -240,7 +240,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("Part-time or flexible work means I'm not serious or committed.",
                   "Flexible work means I am serious about sustainability. I deliver more in focused bursts than most people deliver in full days."),
                  ("The economy requires full-time grind, and I'll be left behind.",
-                  "I create value through insight and guidance, not through hours logged. My economic model is different by design, not by deficiency."),
+                  "I create value through insight and guidance that flow freely from my design."),
              ]),
             ("Hustle culture is aspirational — if I'm not grinding, I'm not growing.",
              "Hustle culture is Generator propaganda. I grow through recognition, stillness, and strategic action — not through relentless grinding.",
@@ -253,10 +253,10 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                   "I get ahead by being recognized for what I already see, by being recognized for what I already see. My one insight is worth a hundred side hustles."),
              ]),
             ("If I want to be respected professionally, I must match the pace of my colleagues.",
-             "I earn professional respect through the quality of my guidance and the accuracy of my seeing — not through matching anyone's pace.",
+             "I earn professional respect through the quality of my guidance and the accuracy of my seeing.",
              [
                  ("Colleagues will think I'm slacking if I work fewer hours.",
-                  "Colleagues will notice my results, not my hours. What I deliver in two focused hours exceeds their eight scattered ones."),
+                  "Colleagues will notice my results and the clarity I bring."),
                  ("I should hide how much I rest so I appear normal.",
                   "I am honest about my design. Hiding costs more energy than being seen. The right environments honor transparency."),
                  ("Career advancement requires consistent, grinding presence.",
@@ -273,7 +273,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("Stopping before exhaustion is disrespectful to those who couldn't stop.",
                   "Stopping before exhaustion honors those who couldn't stop. I use the freedom they fought for to live differently."),
                  ("Hard work is the only path to dignity in my family.",
-                  "Dignity in my lineage now comes through wisdom, presence, and breaking generational patterns — not through self-destruction."),
+                  "Dignity in my lineage now comes through wisdom, presence, and breaking generational patterns."),
              ]),
             ("Money only comes through suffering — if it's not hard, it's not honest.",
              "Money comes through alignment, recognition, and the value I provide through my unique gifts. It does not require suffering.",
@@ -334,7 +334,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("This wave of sadness means my life is actually sad and will always be.",
                   f"This wave of sadness is moving through me, amplified by my open center. Waves pass. My {a.lower()} self remains steady beneath them."),
                  ("I made a terrible decision because I feel terrible about it right now.",
-                  "Feelings about a decision are not the same as the decision's correctness. I wait for clarity across the wave before evaluating."),
+                  "Feelings about a decision and the decision's correctness are separate things."),
                  ("My emotional intensity is proof that I'm broken or unstable.",
                   "My emotional intensity is proof that I am exquisitely sensitive. I feel more because I sense more. This is a gift, properly understood."),
              ]),
@@ -352,7 +352,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
 
         wb.programmed = [
             ("Being emotional means being irrational — I should be logical and controlled at all times.",
-             "My emotional depth is a form of intelligence, not a form of weakness. I feel deeply and I think clearly. Both are true simultaneously.",
+             "My emotional depth is a form of intelligence that coexists with clear thinking.",
              [
                  ("Professional settings require emotional suppression.",
                   "I bring my full self to every setting. My emotional awareness makes me more perceptive, not less professional."),
@@ -395,7 +395,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                   "I release the role of family emotional processor. I was a child who adapted to survive. I am an adult who gets to choose differently now."),
              ]),
             ("Strong women in my family carried everyone's emotional weight without complaint — that's just what we do.",
-             "I honor the strong ones who came before me by choosing a different strength: the strength to put down what was never mine to carry.",
+             "I honor the strong ones who came before me by choosing to put down what was theirs to carry.",
              [
                  ("If I stop carrying the emotional load, the family will fall apart.",
                   "The family held together long before I started carrying this load. My release gives others permission to carry their own share."),
@@ -474,7 +474,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
              "A spacious calendar equals a spacious mind. My importance is not measured by how booked I am. I create space for what matters.",
              [
                  ("If my calendar isn't packed, I'm not in demand.",
-                  "I am in demand for my vision, not my availability. Scarcity of my time increases the value of my presence."),
+                  "I am in demand for my vision and my presence."),
                  ("Downtime on the calendar is wasted space I should fill.",
                   "Downtime on the calendar is protected space for restoration. It is the foundation on which everything else is built."),
                  ("Productivity culture says maximize every minute.",
@@ -582,7 +582,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("Quick thinkers are smarter than me.",
                   "Quick thinkers think quickly. Deep thinkers think thoroughly. Both are forms of intelligence. Mine is depth, and depth takes time."),
                  ("I should be able to debate and defend my position on the spot.",
-                  "I think best in reflection, not in combat. I am not required to perform my intelligence on anyone else's timeline or format."),
+                  "I think best in quiet reflection, where my intelligence can unfold at its own pace."),
                  ("My mind goes blank under pressure — that proves I don't know anything.",
                   "My mind going blank under pressure is my system protecting itself from overload. It's a circuit breaker, not a reflection of my knowledge."),
              ]),
@@ -613,7 +613,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
              "Intelligence is multidimensional and mostly unmeasurable. My ability to synthesize, perceive, and guide cannot be captured by any test. I am smart in ways that matter.",
              [
                  ("My test scores or grades define my intellectual ceiling.",
-                  "My intellectual capacity is not bounded by any score. Tests measure a narrow band of performance, not the full spectrum of my intelligence."),
+                  "My intellectual capacity extends far beyond any test or measurement."),
                  ("I'm not a 'numbers person' so I'm limited in certain fields.",
                   "I can learn anything I need to learn. Labels like 'numbers person' or 'creative type' are false binaries. I contain multitudes."),
                  ("If I was really smart, I'd have accomplished more by now.",
@@ -1136,41 +1136,12 @@ class WorkbookGenerator:
         return result if result else [text]
 
     def _clean_empowering(self, text: str) -> str:
-        """Remove negatives and condense to one sentence."""
-        # First, take only the first sentence
+        """Keep only the first sentence. No mechanical negative-stripping."""
         first = text.split('.')[0].strip()
+        if first and first[-1] in ',;:':
+            first = first[:-1]
         if first and first[-1] not in '.!?':
             first += '.'
-
-        # Remove common negative constructions
-        neg_patterns = [
-            (r'\bnot a\b', 'a'),
-            (r'\bnot the\b', 'a'),
-            (r'\bnot my\b', 'my'),
-            (r'\bnot in\b', 'in'),
-            (r'\bnot through\b', 'through'),
-            (r'\bnot from\b', 'from'),
-            (r'\bnot by\b', 'by'),
-            (r"\bdon't\b", ''),
-            (r"\bcan't\b", 'can'),
-            (r"\bwon't\b", 'will'),
-            (r"\bdoesn't\b", 'does'),
-            (r"\bnever\b", 'always'),
-            (r"\bcannot\b", 'can'),
-            (r'\bis not\b', 'is'),
-            (r'\bare not\b', 'are'),
-            (r'\bwas not\b', 'was'),
-        ]
-
-        import re
-        for pattern, replacement in neg_patterns:
-            first = re.sub(pattern, replacement, first, flags=re.IGNORECASE)
-
-        # Clean up double spaces and trailing punctuation
-        first = re.sub(r'\s+', ' ', first).strip()
-        if first and first[-1] not in '.!?':
-            first += '.'
-
         return first
 
     # ═══════════════════════════════════════════════════════════
