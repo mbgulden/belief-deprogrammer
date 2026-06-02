@@ -1207,14 +1207,12 @@ class WorkbookGenerator:
         ]
 
         belief_num = 1
-        day = 1
-        per_day = 0
 
         for center, wb in self.all_pairs:
             lines.append(f"## Open {center} Center")
             lines.append("")
 
-            # Emotions section
+            # Emotions section (from workbook data)
             if wb.emotions:
                 lines.append(f"### What You Feel Here — Emotions")
                 for emotion, examples in wb.emotions:
@@ -1224,32 +1222,37 @@ class WorkbookGenerator:
                     lines.append("")
                 lines.append("")
 
-            # Belief sections
-            for section_name, section_beliefs in [("Limiting Beliefs", wb.limiting),
-                                                    ("Programmed Beliefs", wb.programmed),
-                                                    ("Inherited Beliefs", wb.inherited)]:
-                lines.append(f"### {section_name}")
+            # Belief sections — use CLEANED beliefs from self.beliefs
+            center_beliefs = [b for b in self.beliefs if b.center == center]
+            for cat_name in ["limiting", "programmed", "inherited"]:
+                cat_beliefs = [b for b in center_beliefs if b.category == cat_name]
+                if not cat_beliefs:
+                    continue
+                cat_label = cat_name.title() + " Beliefs"
+                lines.append(f"### {cat_label}")
                 lines.append("")
-                for lim, emp, subs in section_beliefs:
+
+                # Group: core beliefs followed by their subordinates
+                core = [b for b in cat_beliefs if b.depth == "core"]
+                sub = [b for b in cat_beliefs if b.depth == "subordinate"]
+
+                for c in core:
                     lines.append(f"#### Belief {belief_num} — Core")
-                    lines.append(f"**Limiting:** \"{lim}\"")
+                    lines.append(f"**Limiting:** \"{c.limiting}\"")
                     lines.append("")
-                    lines.append(f"**Empowering:** \"{emp}\"")
+                    lines.append(f"**Empowering:** \"{c.empowering}\"")
                     lines.append("")
                     belief_num += 1
-                    per_day += 1
-                    if per_day % 5 == 0:
-                        day += 1
 
-                    for i, (s_lim, s_emp) in enumerate(subs, 1):
-                        lines.append(f"**Subordinate {i}:**")
-                        lines.append(f"**Limiting:** \"{s_lim}\"")
-                        lines.append(f"**Empowering:** \"{s_emp}\"")
-                        lines.append("")
-                        belief_num += 1
-                        per_day += 1
-                        if per_day % 5 == 0:
-                            day += 1
+                    # Show the next 3 subordinates (they follow the core in order)
+                    for _ in range(3):
+                        if sub:
+                            s = sub.pop(0)
+                            lines.append(f"**Subordinate:**")
+                            lines.append(f"**Limiting:** \"{s.limiting}\"")
+                            lines.append(f"**Empowering:** \"{s.empowering}\"")
+                            lines.append("")
+                            belief_num += 1
 
                     lines.append("---")
                     lines.append("")
