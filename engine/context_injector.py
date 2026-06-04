@@ -107,3 +107,18 @@ class DesignContext:
                 if active_in_center:
                     hanging[center] = active_in_center
         return hanging
+
+    def hanging_gates_by_center(self) -> Dict[str, List[int]]:
+        """Compute hanging gates for all undefined centers using the gate_themes index.
+
+        Returns: {center_name: [gate_numbers]} for centers that have active hanging gates.
+                 Centers that are undefined but have zero active gates are NOT in this dict
+                 (they are 'fully open').
+        """
+        from engine.gate_themes import CENTER_TO_GATES
+        return self.get_hanging_gates(CENTER_TO_GATES)
+
+    def fully_open_centers(self) -> List[str]:
+        """Return undefined centers that have ZERO active hanging gates (pure amplification)."""
+        hanging = self.hanging_gates_by_center()
+        return [c for c in self.undefined_centers if c not in hanging]

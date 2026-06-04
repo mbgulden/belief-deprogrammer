@@ -394,6 +394,19 @@ GATE_CONDITIONING = {
     },
 }
 
+# ── Reverse index: center → list of gate numbers ──
+def build_center_to_gates() -> dict:
+    """Build reverse lookup: center name → list of gate numbers in that center."""
+    mapping = {}
+    for gate_num, data in GATE_CONDITIONING.items():
+        center = data["center"]
+        if center not in mapping:
+            mapping[center] = []
+        mapping[center].append(gate_num)
+    return mapping
+
+CENTER_TO_GATES = build_center_to_gates()
+
 CATEGORIES = [
     "general",
     "environmental",

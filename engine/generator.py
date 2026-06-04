@@ -17,6 +17,7 @@ No negatives in empowering beliefs. No "I am a Projector" repetition.
 
 from typing import Dict, List, Tuple, Optional
 from engine.context_injector import DesignContext
+from engine.gate_beliefs import get_center_gate_beliefs
 
 
 class BeliefPair:
@@ -45,6 +46,7 @@ class CenterWorkbook:
         self.limiting: List[Tuple[str, str, List[Tuple[str, str]]]] = []  # (lim, emp, [(sub_lim, sub_emp)])
         self.programmed: List[Tuple[str, str, List[Tuple[str, str]]]] = []
         self.inherited: List[Tuple[str, str, List[Tuple[str, str]]]] = []
+        self.clearing_guidance: str = ""  # Per-center "how to work with this" guidance
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -52,12 +54,19 @@ class CenterWorkbook:
 # Modeled after Gemini doc quality. No gates. No jargon. Real human thoughts.
 # ═══════════════════════════════════════════════════════════════
 
-def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
-    """Return Gemini-quality belief content for a given open center."""
+def get_center_content(center: str, context: DesignContext, hanging_gates: List[int] = None) -> CenterWorkbook:
+    """Return Gemini-quality belief content for a given open center.
+
+    Args:
+        center: Name of the center
+        context: DesignContext with person's chart data
+        hanging_gates: Active gate numbers in this undefined center. Empty list = fully open.
+    """
     wb = CenterWorkbook(center)
     t = context.type
     a = context.authority
     m = context.motivation
+    hanging_gates = hanging_gates or []
 
     # ── HEAD (Open Crown) ──
     if center == "Head":
@@ -84,7 +93,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
              "I am comfortable with the unknown, and I trust that the right answers will come to me when I truly need them.",
              [
                  ("If I don't know the answer, people will think I'm incompetent.",
-                  "My value lies in my presence and perspective, in my presence and my perspective."),
+                  "My value lies in my presence and my perspective."),
                  ("Uncertainty means I lack control and am unsafe.",
                   f"Uncertainty is a space of infinite possibility where my {a.lower()} intuition can guide me safely."),
                  ("I have to figure it out immediately to make this mental pressure stop.",
@@ -250,7 +259,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("Sleep is for the weak — I should be able to push through.",
                   "Sleep is my most productive activity. My body repairs, my mind clears, and my guidance sharpens during rest."),
                  ("Side hustles and constant productivity are how you get ahead.",
-                  "I get ahead by being recognized for what I already see, by being recognized for what I already see. My one insight is worth a hundred side hustles."),
+                  "I get ahead by being recognized for what I already see. My one insight is worth a hundred side hustles."),
              ]),
             ("If I want to be respected professionally, I must match the pace of my colleagues.",
              "I earn professional respect through the quality of my guidance and the accuracy of my seeing.",
@@ -408,7 +417,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
              "Events unfold through life, separate from my feelings.",
              [
                  ("My anxiety caused the bad thing to happen — I made it real by worrying.",
-                  "My anxiety is a response to uncertainty, a response to uncertainty, separate from causation. I did not manifest misfortune. Correlation is not causation."),
+                  "My anxiety is a response to uncertainty, separate from causation. I did not manifest misfortune. Correlation is not causation."),
                  ("I have to control my thoughts perfectly or I'll bring disaster.",
                   "I release the burden of perfect thoughts. My mind can wander, worry, and wonder without summoning catastrophe. I am safe to think freely."),
                  ("The world is emotionally dangerous and I must stay vigilant.",
@@ -461,7 +470,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
              "I am exactly on time for my own life. The race I'm comparing myself to does not exist. My trajectory is correct for my design.",
              [
                  ("I need to catch up to where I should be by now.",
-                  "There is no 'should be.' There is only where I am. From here, I take the next aligned step. That is enough."),
+                  "I release the word should and meet myself exactly where I am. From here, I take the next aligned step. That is enough."),
                  ("My peers have accomplished more than me.",
                   "My peers have different designs, different timelines, and different definitions of accomplishment. My path is incomparable."),
                  ("I wasted too much time and I can never get it back.",
@@ -892,6 +901,125 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
              ]),
         ]
 
+    # ── THROAT ──
+    elif center == "Throat":
+        wb.emotions = [
+            ("Silence Pressure — The Urge to Fill the Air", [
+                "An almost physical compulsion to speak when a room falls quiet, as if silence is a vacuum you are personally responsible for filling.",
+                "The anxiety of being asked a direct question and having nothing to say, feeling exposed and inadequate in the space where words should be.",
+                "A racing mind during conversations, mentally rehearsing what to say next instead of actually listening — because you're terrified of being caught without a response.",
+            ]),
+            ("Expression Confusion — Not Knowing What to Say or How", [
+                "The frustration of having deep, complex thoughts but being unable to articulate them clearly when it matters most.",
+                "Watching others speak with apparent ease and confidence while you stumble, edit, and second-guess every word.",
+                "The specific pain of saying something and immediately knowing it didn't come out right — but being unable to take it back or rephrase in time.",
+            ]),
+            ("Manifestation Anxiety — Words That Don't Land", [
+                "A quiet despair when you speak your truth and it seems to evaporate in the air — unheard, unacknowledged, as if you never spoke at all.",
+                "The exhaustion of over-explaining because you've learned that your first attempt at communication rarely gets through.",
+                "Feeling fundamentally unheard — a loneliness that sits in the throat, where expression should create connection but instead creates distance.",
+            ]),
+        ]
+
+        wb.limiting = [
+            ("I must have something to say at all times — silence means I have nothing to offer.",
+             "Silence is a valid presence. I speak when something alive wants expression through me. Between my words, my presence communicates more than forced speech ever could.",
+             [
+                 ("If the conversation pauses, it's my job to restart it.",
+                  "Pauses are natural rhythms in conversation. The silence belongs to everyone in the room — it is shared space I am released from managing."),
+                 ("People will think I'm boring or unintelligent if I don't speak enough.",
+                  "People remember presence more than word count. One well-timed, genuine statement lands deeper than a flood of filler."),
+                 ("An awkward silence is my fault and my responsibility to fix.",
+                  "Awkward silences belong to the dynamic between all present. I release the solo burden of managing the social atmosphere."),
+             ]),
+            ("I should be able to articulate myself perfectly on the first try — if I stumble, I'm incompetent.",
+             "Articulation is a process. My first attempt is a draft, and I am allowed to refine. The truth I carry is valid even when the words are still forming.",
+             [
+                 ("If my words don't come out right, the message is lost and I've failed.",
+                  "My message can be restated, clarified, and revisited. Connection survives imperfect articulation. I repair as I go."),
+                 ("Confident people never stumble over their words.",
+                  "Confident people stumble and recover. Their confidence is in the recovery, not in the perfection. I practice recovering gracefully."),
+                 ("I should rehearse everything I'm going to say to avoid mistakes.",
+                  "Rehearsal can help, but presence matters more. I trust my ability to speak from the moment. Over-preparation steals spontaneity."),
+             ]),
+            ("I am fundamentally unheard — what I say doesn't land or matter to anyone.",
+             "I am heard by the right ears when I speak from alignment. Not every word needs to land. The words that are meant to connect will find their receivers.",
+             [
+                 ("No one really listens to me — I might as well stay quiet.",
+                  "I have evidence of being heard by those who matter. The feeling of being unheard is sometimes my open Throat amplifying the room's distraction rather than a rejection of me."),
+                 ("I should repeat myself until I'm sure they understood.",
+                  "I say it once, clearly, and I trust that what is heard is enough. Repetition from anxiety dilutes impact. One clear statement lands deeper than five anxious ones."),
+                 ("Being misunderstood means I expressed it wrong.",
+                  "Misunderstanding can come from the listener's filters, timing, or readiness — not only from my expression. I release responsibility for the entire communication chain."),
+             ]),
+        ]
+
+        wb.programmed = [
+            ("The loudest voice wins — if you're not assertive and fast, you'll be talked over and forgotten.",
+             "I don't need to be the loudest to be heard. My timing, presence, and precision carry more weight than volume. I speak when I'm ready and I trust my words to land.",
+             [
+                 ("I have to fight for airtime or I'll never get a word in.",
+                  "I wait for my natural opening. The right spaces make room for me without fighting. I don't need to compete for expression."),
+                 ("Interrupting is the only way to be part of fast conversations.",
+                  "I can be part of conversations at my own pace. The people who value me will make space. I don't need to override others to be included."),
+                 ("Quiet people get overlooked in professional settings.",
+                  "Quiet people are often the most respected when they do speak. My words carry weight precisely because I don't scatter them carelessly."),
+             ]),
+            ("You should be able to speak confidently on any topic thrown at you — that's what competent people do.",
+             "I am allowed to say 'I don't know yet' or 'let me think about that.' Thoughtful delay earns more respect than rushed, shallow answers.",
+             [
+                 ("If I don't have an immediate answer, I look uninformed.",
+                  "Taking a moment to think demonstrates depth, not ignorance. I honor my process over the pressure for instant response."),
+                 ("I need to be an expert on everything to participate in conversations.",
+                  "I participate by being curious and present. Questions are as valuable as answers. I contribute through listening as much as through speaking."),
+                 ("People will judge me if I say I need time to think.",
+                  "People respect honesty. Saying I need time shows self-awareness. Those who judge my pace are not my audience."),
+             ]),
+            ("Communication is about performance — the more charismatic and polished you are, the more valuable you are.",
+             "Communication is about connection. Authentic, imperfect expression builds more trust than polished performance. I choose realness over presentation.",
+             [
+                 ("I should take public speaking courses to fix how I talk.",
+                  "I can grow my communication skills AND accept my natural style. My voice doesn't need to be different — it needs to be mine."),
+                 ("Charisma is a talent you're born with, and I don't have it.",
+                  "Charisma is presence meeting authenticity. I have presence. I have authenticity. When I relax into both, my natural magnetism emerges."),
+                 ("If I'm not entertaining, people will lose interest and leave.",
+                  "The people who stay are interested in ME, not in a performance. I don't need to entertain to belong. My genuine self is enough."),
+             ]),
+        ]
+
+        wb.inherited = [
+            ("In my family, children were seen and not heard — speaking up meant trouble.",
+             "I am no longer a child in that household. I have earned my voice, and I use it freely. My words are welcome, and my expression is safe.",
+             [
+                 ("Speaking my truth still feels dangerous — like I'll be punished for it.",
+                  "The danger was in the past. My body remembers, but my present is safe. I speak and I stay safe. The punishment does not follow me here."),
+                 ("I was trained to make myself small and silent to survive.",
+                  "Making myself small was a survival strategy. I am in a different environment now. I can take up space with my voice and still be loved."),
+                 ("If I express myself fully, my family will reject me again.",
+                  "My family's response to my expression is their journey. My journey is to speak fully, and let the chips fall where they may."),
+             ]),
+            ("In my family, you didn't talk about feelings or hard things — you just pushed through in silence.",
+             "I break the silence. I talk about feelings. I name hard things. My willingness to speak the unsaid heals backward through my lineage.",
+             [
+                 ("Emotional expression makes people uncomfortable — I should protect them from that.",
+                  "Others' discomfort with emotional honesty is their conditioning. I am not responsible for managing everyone's comfort at the expense of my truth."),
+                 ("Talking about problems makes them real and worse.",
+                  "Talking about problems makes them visible and solvable. Silence festers. Expression heals. I trust the power of putting words to what was hidden."),
+                 ("The strong ones in my family suffered in silence — that's the model I inherited.",
+                  "I redefine strength. Strength is speaking when it's hard. Strength is vulnerability. I am strong in ways my ancestors didn't have permission to be."),
+             ]),
+            ("We don't air our dirty laundry — family secrets stay in the family, and silence is loyalty.",
+             "Secrets kept in silence become poison. I choose what to share and when, and my loyalty is to truth and healing — not to the silence that protected harm.",
+             [
+                 ("If I speak about what happened, I'm betraying my family.",
+                  "Speaking truth about harm is not betrayal — it is liberation. The betrayal was the harm itself. My voice is the path to freedom."),
+                 ("What happened in the family is private and should stay buried.",
+                  "What happened in the family lives in my body whether I speak it or not. Speaking it releases the pressure. I choose when and with whom — and I choose to release."),
+                 ("Loyalty means protecting the family image over my own truth.",
+                  "Loyalty to my own healing is a higher loyalty. I honor my lineage by breaking the cycles that damaged it — and speaking is how I break them."),
+             ]),
+        ]
+
     # ── G CENTER ──
     elif center == "G":
         wb.emotions = [
@@ -929,7 +1057,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("I should have a clear life plan like everyone else.",
                   "Life plans are for defined Gs. My path emerges through following what lights me up and saying yes to the right invitations. This is not lack — it's a different navigation system."),
                  ("Not knowing my purpose means I'm failing at life.",
-                  "Not knowing my purpose means I'm open to being found by it. Purpose that announces itself is more powerful than purpose that is manufactured."),
+                  "My openness to purpose means life can find me and reveal my direction organically. Purpose that announces itself is more powerful than purpose that is manufactured."),
                  ("I'm drifting while everyone else is advancing.",
                   "I am magnetizing. The right directions, people, and opportunities are drawn to my openness."),
              ]),
@@ -974,7 +1102,7 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
                  ("Mature adults have stable identities.",
                   "Mature adults have honest relationships with their changing selves. Stability is in the honesty, not in the fixity."),
                  ("I missed the window to become someone.",
-                  "There is no window. There is only today. Whoever I become, I am becoming now. The past is not a locked door — it is the road I took to get here."),
+                  "Every day is a fresh opportunity. I am becoming who I am right now. The past is the road I took to get here, and today is wide open."),
              ]),
         ]
 
@@ -1011,7 +1139,81 @@ def get_center_content(center: str, context: DesignContext) -> CenterWorkbook:
              ]),
         ]
 
+    # ── Inject gate-specific beliefs for hanging gates ──
+    if hanging_gates:
+        gate_beliefs = get_center_gate_beliefs(center, hanging_gates)
+        for lim, emp, cat, gate_num in gate_beliefs:
+            wb.limiting.append((lim, emp, []))
+
+    # ── Set clearing guidance for this center ──
+    wb.clearing_guidance = _get_clearing_guidance(center, context, hanging_gates)
+
     return wb
+
+
+def _get_clearing_guidance(center: str, context: 'DesignContext', hanging_gates: List[int]) -> str:
+    """Generate personalized 'how to work with this center' guidance."""
+    t = context.type
+    a = context.authority
+    m = context.motivation
+
+    guidance = {
+        "Head": (
+            f"As a {t} with {a} authority, your true clarity comes from your instincts, not from solving every mental puzzle. "
+            "When you feel the pressure to 'figure it out,' pause and ask: 'Is this question actually mine, or am I amplifying someone else's mental pressure?' "
+            "If it doesn't matter to your immediate wellbeing, you have full permission to let it pass through your open Crown and out. "
+            f"Your {a.lower()} knowing is instantaneous — trust it over the mental spin."
+        ),
+        "Ajna": (
+            f"As a {t}, your open Ajna is designed to process many perspectives without committing to one fixed truth. "
+            "When you feel pressured to have a firm opinion or certainty, remind yourself: 'I am a synthesist, not a certainty machine.' "
+            "Your mind explores possibilities. Your authority decides. "
+            f"Let your {a.lower()} knowing be the final word — the mind is just the research department."
+        ),
+        "Throat": (
+            f"As a {t}, your open Throat amplifies the pressure to speak. "
+            "When you feel the urge to fill silence or prove yourself through words, pause and ask: 'Is this actually alive in me right now, or am I absorbing the room's pressure to talk?' "
+            "Your silence is presence. Your words, when spoken from genuine impulse, carry far more weight than anything forced. "
+            "Speak when moved. Rest when not."
+        ),
+        "G": (
+            f"As a {t} with an open G center, your direction and identity are revealed through the right people, places, and invitations — not manufactured through force. "
+            "When you feel lost or like you're shape-shifting, ask: 'Am I in the right environment? Am I with the right people?' "
+            "You discover yourself relationally. Trust that the right spaces will call forward the right version of you."
+        ),
+        "Heart/Ego": (
+            f"As a {t}, your worth is inherent and precedes any accomplishment. "
+            "When you feel the pressure to prove, earn, or justify your existence, pause and place your hand on your chest. "
+            "Breathe into the truth: 'I arrived worthy. I don't earn worth — I remember it.' "
+            "Your willpower flows effortlessly when you are recognized and invited, not when you are forcing."
+        ),
+        "Sacral": (
+            f"As a {t}, you were never designed to sustain Generator-level output. "
+            "When you feel the guilt of resting or the pressure to 'keep going,' ask: 'Whose energy am I trying to match?' "
+            "Your power is in precision and timing — brilliant bursts followed by essential rest. "
+            "The right people value your insight, not your stamina."
+        ),
+        "Spleen": (
+            f"As a {t} with {a} authority, your open Spleen amplifies fear from the environment. "
+            "When baseline anxiety hums, ask: 'Is this my fear, or am I picking up the room's survival signal?' "
+            "Most of what you feel is borrowed. Your genuine instinct is quiet, specific, and in the present moment. "
+            "Practice distinguishing: borrowed fear is loud and vague. Your knowing is still and certain."
+        ),
+        "Solar Plexus": (
+            f"As a {t}, your open Solar Plexus absorbs and amplifies the emotional field around you. "
+            "When you feel a wave of emotion — sadness, anger, anxiety — ask: 'Is this mine, or did it arrive with someone else?' "
+            "You are a sensor, not a sponge. Feel it, name it, let it go. "
+            f"Your {a.lower()} clarity exists beneath the emotional weather."
+        ),
+        "Root": (
+            f"As a {t}, your open Root amplifies pressure and urgency from the environment. "
+            "When you feel the relentless push to act, hurry, or fix, pause and ask: 'Is this urgency actually mine, or am I absorbing the room's adrenaline?' "
+            "Your correct pace is set by your body, not by borrowed urgency. "
+            "Stillness is productive. Rest is the foundation from which your genius operates."
+        ),
+    }
+
+    return guidance.get(center, f"This open center absorbs and amplifies energy. Practice noticing what is yours and what is borrowed, and release what is not yours to carry.")
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -1027,8 +1229,12 @@ class WorkbookGenerator:
         self.all_pairs: List[Tuple[str, CenterWorkbook]] = []
 
     def generate(self, tier: str = "comprehensive") -> List[BeliefPair]:
+        hanging = self.context.hanging_gates_by_center()
+        fully_open = self.context.fully_open_centers()
+
         for center in self.context.undefined_centers:
-            wb = get_center_content(center, self.context)
+            center_hanging = hanging.get(center, [])
+            wb = get_center_content(center, self.context, hanging_gates=center_hanging)
             self.all_pairs.append((center, wb))
 
             # Collect all limiting beliefs + their subordinates
@@ -1136,13 +1342,29 @@ class WorkbookGenerator:
         return result if result else [text]
 
     def _clean_empowering(self, text: str) -> str:
-        """Keep only the first sentence. No mechanical negative-stripping."""
-        first = text.split('.')[0].strip()
-        if first and first[-1] in ',;:':
-            first = first[:-1]
-        if first and first[-1] not in '.!?':
-            first += '.'
-        return first
+        """Keep up to 2 sentences. Stop early if second sentence starts negative."""
+        sentences = [s.strip() for s in text.split('.') if s.strip()]
+        if not sentences:
+            return text
+
+        # Always keep first sentence
+        result = sentences[0]
+        if not result[-1] in '.!?':
+            result += '.'
+
+        # Consider adding second sentence if it's safe
+        if len(sentences) >= 2:
+            second = sentences[1]
+            first_word = second.split()[0].lower() if second.split() else ''
+
+            # Reject if second sentence starts negative
+            negative_starters = {'no', 'not', 'never', "n't", 'nothing', 'nobody', 'nowhere'}
+            if first_word not in negative_starters and len(result + '. ' + second) < 280:
+                result += ' ' + second
+                if not result[-1] in '.!?':
+                    result += '.'
+
+        return result
 
     # ═══════════════════════════════════════════════════════════
     # FORMATTER
@@ -1179,9 +1401,29 @@ class WorkbookGenerator:
 
         belief_num = 1
 
+        hanging = self.context.hanging_gates_by_center()
+        fully_open = self.context.fully_open_centers()
+
         for center, wb in self.all_pairs:
+            # Build center subheading with gate awareness
+            if center in fully_open:
+                detail = "— Fully Open (pure amplification, zero activations)"
+            elif center in hanging:
+                from engine.gate_themes import GATE_CONDITIONING
+                gate_names = [f"Gate {g} ({GATE_CONDITIONING[g]['name']})" for g in hanging[center]]
+                detail = f"— Undefined with {' + '.join(gate_names)}"
+            else:
+                detail = ""
+
             lines.append(f"## Open {center} Center")
+            if detail:
+                lines.append(f"*{detail}*")
             lines.append("")
+
+            # Clearing guidance
+            if wb.clearing_guidance:
+                lines.append(f"> **How to work with this center:** {wb.clearing_guidance}")
+                lines.append("")
 
             # Emotions section (from workbook data)
             if wb.emotions:
