@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belief Deprogrammer — Personalized HD Deconditioning</title>
+<meta name="description" content="Generate a personalized Human Design belief reprogramming workbook. Discover the limiting beliefs stored in your open centers and replace them with empowering truths specific to your design.">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #0a0a1a 100%);
+    color: #e0e0e0;
+    font-family: system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .container { max-width: 600px; width: 100%; padding: 40px 20px; }
+  h1 {
+    font-size: 28px; font-weight: 600; color: #00ffff;
+    text-align: center; margin-bottom: 4px;
+  }
+  .subtitle {
+    text-align: center; color: #8a8a9f; font-size: 14px; margin-bottom: 32px;
+  }
+  label {
+    display: block; font-size: 12px; color: #8a8a9f; margin-top: 16px; margin-bottom: 4px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  input, select {
+    width: 100%; padding: 10px 12px;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px; color: #e0e0e0; font-size: 14px;
+  }
+  input:focus, select:focus { outline: none; border-color: #00ffff; }
+  .row { display: flex; gap: 12px; }
+  .row > div { flex: 1; }
+  button {
+    width: 100%; margin-top: 24px; padding: 14px;
+    background: #00ffff; color: #0a0a1a; border: none; border-radius: 6px;
+    font-size: 16px; font-weight: 600; cursor: pointer;
+  }
+  button:hover { background: #00dddd; }
+  button:disabled { background: #444; color: #888; cursor: not-allowed; }
+  #result { margin-top: 32px; display: none; }
+  #result.show { display: block; }
+  .result-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px; padding: 24px;
+  }
+  .result-card h2 { margin-top: 0; color: #00ff55; font-size: 18px; }
+  .result-card .meta { font-size: 13px; color: #8a8a9f; margin-bottom: 16px; }
+  .result-card .meta span { color: #00ffff; }
+  .result-card .workbook {
+    background: rgba(0,0,0,0.3); border-radius: 6px;
+    padding: 16px; max-height: 500px; overflow-y: auto;
+    font-size: 13px; line-height: 1.6; white-space: pre-wrap;
+    font-family: 'Georgia', serif;
+  }
+  .download-btn {
+    display: inline-block; margin-top: 16px; padding: 10px 20px;
+    background: #ff0055; color: #fff; text-decoration: none;
+    border-radius: 6px; font-size: 14px; font-weight: 600;
+  }
+  .error { color: #ff0033; text-align: center; margin-top: 16px; }
+  .loading { text-align: center; color: #00ffff; margin-top: 24px; }
+</style>
+</head>
+<body>
+<nav style="padding:16px 24px;display:flex;gap:24px;justify-content:center;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:32px;">
+  <a href="index.html" style="color:#00ffff;text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Generate Workbook</a>
+  <a href="philosophy.html" style="color:#8a8a9f;text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Philosophy</a>
+  <a href="research.html" style="color:#8a8a9f;text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Research Guide</a>
+  <a href="sources.html" style="color:#8a8a9f;text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Sources & Credits</a>
+</nav>
+<div class="container">
+  <h1>Belief Deprogrammer</h1>
+  <p class="subtitle">Personalized Human Design Deconditioning Workbook</p>
+
+  <form id="birth-form">
+    <label>Full Name</label>
+    <input type="text" id="name" placeholder="Your name" required>
+
+    <label>Birth Date</label>
+    <div class="row">
+      <div>
+        <select id="month" required>
+          <option value="">Month</option>
+          <option value="1">January</option><option value="2">February</option>
+          <option value="3">March</option><option value="4">April</option>
+          <option value="5">May</option><option value="6">June</option>
+          <option value="7">July</option><option value="8">August</option>
+          <option value="9">September</option><option value="10">October</option>
+          <option value="11">November</option><option value="12" selected>December</option>
+        </select>
+      </div>
+      <div><input type="number" id="day" placeholder="Day" min="1" max="31" value="10" required></div>
+      <div><input type="number" id="year" placeholder="Year" value="1989" required></div>
+    </div>
+
+    <label>Birth Time</label>
+    <div class="row">
+      <div><input type="number" id="hour" placeholder="Hour (0-23)" min="0" max="23" value="17" required></div>
+      <div><input type="number" id="minute" placeholder="Minute" min="0" max="59" value="7" required></div>
+    </div>
+
+    <label>Birth Location</label>
+    <div class="row">
+      <div><input type="text" id="city" placeholder="City" value="Simi Valley"></div>
+      <div><input type="text" id="timezone" placeholder="Timezone" value="America/Los_Angeles" required></div>
+    </div>
+    <div class="row">
+      <div><input type="number" id="latitude" placeholder="Latitude" step="any" value="34.2694" required></div>
+      <div><input type="number" id="longitude" placeholder="Longitude" step="any" value="-118.7815" required></div>
+    </div>
+
+    <label>Workbook Depth</label>
+    <select id="tier">
+      <option value="comprehensive">Comprehensive (~200 belief pairs)</option>
+      <option value="short">Quick Reset (~50 core beliefs)</option>
+    </select>
+
+    <button type="submit" id="submit-btn">Generate My Workbook</button>
+  </form>
+
+  <div id="loading" class="loading" style="display:none">Generating your personalized workbook…</div>
+  <div id="error" class="error" style="display:none"></div>
+  <div id="result">
+    <div class="result-card">
+      <h2 id="result-title"></h2>
+      <p class="meta" id="result-meta"></p>
+      <div class="workbook" id="result-content"></div>
+      <button class="download-btn" id="download-btn">Download as Markdown</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const API = 'https://api.humandesignengine.com/belief/generate';
+
+document.getElementById('birth-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const btn = document.getElementById('submit-btn');
+  const loading = document.getElementById('loading');
+  const error = document.getElementById('error');
+  const result = document.getElementById('result');
+
+  btn.disabled = true;
+  loading.style.display = 'block';
+  error.style.display = 'none';
+  result.classList.remove('show');
+
+  const payload = {
+    name: document.getElementById('name').value,
+    year: parseInt(document.getElementById('year').value),
+    month: parseInt(document.getElementById('month').value),
+    day: parseInt(document.getElementById('day').value),
+    hour: parseFloat(document.getElementById('hour').value),
+    minute: parseInt(document.getElementById('minute').value),
+    latitude: parseFloat(document.getElementById('latitude').value),
+    longitude: parseFloat(document.getElementById('longitude').value),
+    timezone: document.getElementById('timezone').value,
+    tier: document.getElementById('tier').value
+  };
+
+  try {
+    const resp = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await resp.json();
+
+    if (!resp.ok) {
+      throw new Error(data.error || 'Generation failed');
+    }
+
+    document.getElementById('result-title').textContent =
+      `${data.name}'s Belief Workbook`;
+    document.getElementById('result-meta').innerHTML =
+      `<span>${data.type}</span> · <span>${data.authority}</span> Authority · <span>${data.profile}</span> Profile · ${data.belief_pairs} belief pairs`;
+    document.getElementById('result-content').textContent = data.markdown;
+    result.classList.add('show');
+
+    // Setup download
+    const blob = new Blob([data.markdown], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const downloadBtn = document.getElementById('download-btn');
+    downloadBtn.onclick = () => {
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${payload.name.toLowerCase().replace(/\s+/g, '-')}-belief-workbook.md`;
+      a.click();
+    };
+  } catch (err) {
+    error.textContent = err.message;
+    error.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    loading.style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>
