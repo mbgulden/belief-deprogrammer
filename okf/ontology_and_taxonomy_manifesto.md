@@ -5,7 +5,7 @@ description: Structural blueprint and controlled vocabulary for the Belief Depro
 resource: https://github.com/mbgulden/belief-deprogrammer/blob/main/okf/ontology_and_taxonomy_manifesto.md
 tags: [ontology, taxonomy, architecture, blueprint]
 timestamp: 2026-06-23T08:00:00Z
-linear_issue: GRO-2183
+linear_issue: GRO-2180
 git_repo: mbgulden/belief-deprogrammer
 git_path: okf/ontology_and_taxonomy_manifesto.md
 last_verified: 2026-06-23
@@ -24,7 +24,7 @@ This document serves as the foundational structural blueprint for the Belief Dep
 
 ## 1. Core Ontological Entities
 
-Our knowledge graph is built around four fundamental node types:
+Our knowledge graph is built around five fundamental node types:
 
 ### A. Core Belief (`node:Core Belief`)
 An entrenched cognitive anchor or ideological premise that forms the basis of a subject's worldview.
@@ -46,11 +46,16 @@ A targeted cognitive intervention path designed to bypass cognitive biases and r
 *   **Attributes**: Active ingredient, risk level, step-by-step protocol.
 *   **Relationship**: Executed via protocols defined in the [Methodologies Playbook](./deprogramming_methodologies_playbook.md) (and applied in vectors like [Socratic Questioning](./methodologies/socratic_questioning.md)).
 
+### E. Case Study & Empirical Trial (`node:Case Study`)
+An empirical record of a specific subject intervention or a structured scientific trial evaluating the efficacy and safety of deprogramming vectors.
+*   **Attributes**: Subject/trial profile, ideological framework, chronological narrative, outcome metrics, ethical compliance verification.
+*   **Relationship**: Documented in the [Empirical Evidence Ledger](./case_study_and_empirical_evidence_ledger.md) (and detailed in cases like [Michael Workbook Case Study](./cases/michael_workbook.md) or [Mouse Trauma Study](./cases/mouse_trauma_study_2025.md)).
+
 ---
 
 ## 2. Dynamic Taxonomy Schema
 
-We classify all concepts across four orthogonal dimensions:
+We classify all concepts across four orthogonal dimensions, integrating Human Design center mechanics and the 12 merged categories from the architecture blueprint:
 
 ```mermaid
 graph TD
@@ -58,16 +63,49 @@ graph TD
     Root --> CBia["Cognitive Bias & Fallacy"]
     Root --> DM["Deprogramming Modality"]
     Root --> EG["Ethical Guardrails"]
+    Root --> HD["Human Design Diagnostics"]
     
     CBia --> CF["Confirmation Bias"]
     CBia --> CD["Cognitive Dissonance"]
+    CBia --> BE["Backfire Effect"]
     
     DM --> SQ["Socratic Questioning"]
     DM --> SE["Street Epistemology"]
+    DM --> RR["Remove-Replace Scripting"]
+    DM --> EC["Emotion/Body/Belief Code"]
     
     EG --> PS["Psychological Safety"]
     EG --> CA["Cognitive Autonomy"]
+    EG --> PD["Pseudoscience Disclosure"]
+    
+    HD --> OC["Open Centers"]
+    HD --> HG["Hanging Gates"]
 ```
+
+### The 12 Merged Categories
+All belief nodes are tagged with at least one of these 12 categories:
+1.  **General**: Core undefined center conditioning.
+2.  **Environmental**: Derived from physical spaces, workplaces, or schools.
+3.  **Generational**: Inherited, ancestral belief patterns.
+4.  **Physical**: Body, health, nervous system.
+5.  **Mental**: Cognitive loops, logical filters.
+6.  **Spiritual**: Core purpose, worthiness, spiritual connection.
+7.  **Subconscious**: Deeply buried drivers.
+8.  **Conscious**: Known but stuck patterns.
+9.  **Absorbed**: Taken in from specific relationships.
+10. **Passion**: Creativity, drive, and joy.
+11. **Survival**: Basic security, safety, and survival needs.
+12. **Emotional**: Stored emotional trauma.
+
+### The 60 Emotions → Human Design Center Mapping
+Trapped emotional energies from the Emotion Code are mapped directly to their corresponding Human Design diagnostic center:
+*   **G Center**: Abandonment, Betrayal, Rejection, Love Unreceived, Heartache.
+*   **Solar Plexus**: Grief, Sadness, Sorrow, Despair, Depression.
+*   **Heart/Ego**: Guilt, Shame, Unworthy, Worthless, Humiliation, Pride.
+*   **Spleen**: Terror, Panic, Dread, Horror, Shock, Vulnerability.
+*   **Root**: Overwhelm, Helplessness, Lack of Control, Frustration.
+*   **Ajna**: Confusion, Indecisiveness, Creative Insecurity, Discouragement.
+*   **Head**: Anxiety, Worry, Nervousness.
 
 ---
 

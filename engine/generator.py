@@ -1256,7 +1256,7 @@ class WorkbookGenerator:
         # Add design-specific
         self._add_design_beliefs()
 
-        if tier == "short":
+        if tier in ("short", "free"):
             self.beliefs = self._distill(self.beliefs, 50)
 
         # Enforce single-sentence + zero-negatives

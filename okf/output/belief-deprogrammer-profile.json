@@ -104,6 +104,104 @@
       "title": "Socratic Questioning",
       "type": "deprogramming_vector",
       "parent_section": "methodologies"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cognitive_biases/backfire_effect.md",
+      "relative": "cognitive_biases/backfire_effect.md",
+      "title": "The Backfire Effect",
+      "type": "cognitive_bias",
+      "parent_section": "cognitive_biases"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cognitive_biases/cognitive_dissonance.md",
+      "relative": "cognitive_biases/cognitive_dissonance.md",
+      "title": "Cognitive Dissonance",
+      "type": "cognitive_bias",
+      "parent_section": "cognitive_biases"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cognitive_biases/authority_bias.md",
+      "relative": "cognitive_biases/authority_bias.md",
+      "title": "Authority Bias",
+      "type": "cognitive_bias",
+      "parent_section": "cognitive_biases"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cognitive_biases/tribalism_bias.md",
+      "relative": "cognitive_biases/tribalism_bias.md",
+      "title": "Tribalism Bias",
+      "type": "cognitive_bias",
+      "parent_section": "cognitive_biases"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/street_epistemology.md",
+      "relative": "methodologies/street_epistemology.md",
+      "title": "Street Epistemology",
+      "type": "deprogramming_vector",
+      "parent_section": "methodologies"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/cbt_restructuring.md",
+      "relative": "methodologies/cbt_restructuring.md",
+      "title": "Cognitive Behavioral Restructuring",
+      "type": "deprogramming_vector",
+      "parent_section": "methodologies"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/remove_replace_scripting.md",
+      "relative": "methodologies/remove_replace_scripting.md",
+      "title": "Remove-Replace Scripting",
+      "type": "deprogramming_vector",
+      "parent_section": "methodologies"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/emotion_code.md",
+      "relative": "methodologies/emotion_code.md",
+      "title": "The Emotion Code",
+      "type": "deprogramming_vector",
+      "parent_section": "methodologies"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/body_code.md",
+      "relative": "methodologies/body_code.md",
+      "title": "The Body Code",
+      "type": "deprogramming_vector",
+      "parent_section": "methodologies"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/belief_code.md",
+      "relative": "methodologies/belief_code.md",
+      "title": "The Belief Code",
+      "type": "deprogramming_vector",
+      "parent_section": "methodologies"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/muscle_testing.md",
+      "relative": "methodologies/muscle_testing.md",
+      "title": "Applied Kinesiology (Muscle Testing)",
+      "type": "deprogramming_vector",
+      "parent_section": "methodologies"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cases/mouse_trauma_study_2025.md",
+      "relative": "cases/mouse_trauma_study_2025.md",
+      "title": "Mouse Trauma Study (2025)",
+      "type": "empirical_trial",
+      "parent_section": "cases"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cases/morning_sickness_study_2025.md",
+      "relative": "cases/morning_sickness_study_2025.md",
+      "title": "Morning Sickness Study (2025)",
+      "type": "empirical_trial",
+      "parent_section": "cases"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cases/heart_wall_clearing_study.md",
+      "relative": "cases/heart_wall_clearing_study.md",
+      "title": "Heart-Wall Clearing Trial",
+      "type": "empirical_trial",
+      "parent_section": "cases"
     }
   ],
   "research": {
@@ -118,7 +216,7 @@
   "metadata": {
     "okf_root": "/home/ubuntu/work/belief-deprogrammer/okf",
     "ingest_date": "2026-06-23T08:00:00.000000+00:00",
-    "doc_count": 11
+    "doc_count": 25
   },
   "primary_sections": [
     {
@@ -139,17 +237,17 @@
     {
       "name": "cases",
       "type": "case_study",
-      "doc_count": 1
+      "doc_count": 4
     },
     {
       "name": "cognitive_biases",
       "type": "cognitive_bias",
-      "doc_count": 1
+      "doc_count": 5
     },
     {
       "name": "methodologies",
       "type": "deprogramming_vector",
-      "doc_count": 1
+      "doc_count": 8
     }
   ]
 }
