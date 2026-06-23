@@ -18,3 +18,7 @@ status: current
 Project-specific audits with findings + recommendations.
 
 *No entries yet. Populate as audits are produced.*
+
+---
+
+Back to [Belief Deprogrammer Index](../index.md) (the central project landing hub).

@@ -18,3 +18,7 @@ status: current
 Project-specific reference research.
 
 *No entries yet. Populate as research are produced.*
+
+---
+
+Back to [Belief Deprogrammer Index](../index.md) (the central project landing hub).

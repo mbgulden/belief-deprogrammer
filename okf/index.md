@@ -23,6 +23,11 @@ status: current
 ## Sections
 - [Audits](./audits/index.md) — Findings + recommendations.
 - [Research](./research/index.md) — Project-specific reference research.
+- [Ontology & Taxonomy Manifesto](./ontology_and_taxonomy_manifesto.md) — The classification and relationship schema blueprint.
+- [Cognitive Bias and Fallacy Index](./cognitive_bias_and_fallacy_index.md) — A deconstruction of cognitive biases and logical fallacies.
+- [Deprogramming Methodologies Playbook](./deprogramming_methodologies_playbook.md) — Tactical modalities and execution protocols.
+- [Case Study & Empirical Evidence Ledger](./case_study_and_empirical_evidence_ledger.md) — Empirical evidence and case histories.
+- [Ethical Guardrails & Harm Reduction Framework](./ethical_guardrails_and_harm_reduction_framework.md) — Safety limits and cognitive autonomy guidelines.
 
 ## Status
 

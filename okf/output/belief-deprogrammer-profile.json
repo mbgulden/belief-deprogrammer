@@ -1,0 +1,155 @@
+{
+  "project": {
+    "name": "Belief Deprogrammer",
+    "tagline": "type: Index",
+    "description": "type: Index",
+    "mission": "",
+    "type": "knowledge-base",
+    "status": "active"
+  },
+  "content": {
+    "primary_sections": [],
+    "assets": [],
+    "testimonials_or_quotes": []
+  },
+  "design": {
+    "color_palette": [],
+    "typography": "",
+    "mood": "",
+    "reference_sites": []
+  },
+  "technical": {
+    "stack": [],
+    "deployment": "",
+    "github_repo": "mbgulden/belief-deprogrammer",
+    "live_url": ""
+  },
+  "automation": {
+    "workflows": []
+  },
+  "okf_docs": [
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/audits/index.md",
+      "relative": "audits/index.md",
+      "title": "Audits",
+      "type": "audit",
+      "parent_section": "audits"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/index.md",
+      "relative": "index.md",
+      "title": "Belief Deprogrammer",
+      "type": "index",
+      "parent_section": "okf"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/research/index.md",
+      "relative": "research/index.md",
+      "title": "Research",
+      "type": "research",
+      "parent_section": "research"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/ontology_and_taxonomy_manifesto.md",
+      "relative": "ontology_and_taxonomy_manifesto.md",
+      "title": "Ontology & Taxonomy Manifesto",
+      "type": "manifesto",
+      "parent_section": "okf"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cognitive_bias_and_fallacy_index.md",
+      "relative": "cognitive_bias_and_fallacy_index.md",
+      "title": "Cognitive Bias and Fallacy Index",
+      "type": "index",
+      "parent_section": "okf"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/deprogramming_methodologies_playbook.md",
+      "relative": "deprogramming_methodologies_playbook.md",
+      "title": "Deprogramming Methodologies Playbook",
+      "type": "playbook",
+      "parent_section": "okf"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/case_study_and_empirical_evidence_ledger.md",
+      "relative": "case_study_and_empirical_evidence_ledger.md",
+      "title": "Case Study & Empirical Evidence Ledger",
+      "type": "ledger",
+      "parent_section": "okf"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/ethical_guardrails_and_harm_reduction_framework.md",
+      "relative": "ethical_guardrails_and_harm_reduction_framework.md",
+      "title": "Ethical Guardrails & Harm Reduction Framework",
+      "type": "framework",
+      "parent_section": "okf"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cases/michael_workbook.md",
+      "relative": "cases/michael_workbook.md",
+      "title": "Michael Workbook Case Study",
+      "type": "case_study",
+      "parent_section": "cases"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cognitive_biases/confirmation_bias.md",
+      "relative": "cognitive_biases/confirmation_bias.md",
+      "title": "Confirmation Bias",
+      "type": "cognitive_bias",
+      "parent_section": "cognitive_biases"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/socratic_questioning.md",
+      "relative": "methodologies/socratic_questioning.md",
+      "title": "Socratic Questioning",
+      "type": "deprogramming_vector",
+      "parent_section": "methodologies"
+    }
+  ],
+  "research": {
+    "research_dirs": [
+      "research"
+    ],
+    "audit_dirs": [
+      "audits"
+    ],
+    "decision_dirs": []
+  },
+  "metadata": {
+    "okf_root": "/home/ubuntu/work/belief-deprogrammer/okf",
+    "ingest_date": "2026-06-23T08:00:00.000000+00:00",
+    "doc_count": 11
+  },
+  "primary_sections": [
+    {
+      "name": "audits",
+      "type": "audit",
+      "doc_count": 1
+    },
+    {
+      "name": "okf",
+      "type": "index",
+      "doc_count": 6
+    },
+    {
+      "name": "research",
+      "type": "research",
+      "doc_count": 1
+    },
+    {
+      "name": "cases",
+      "type": "case_study",
+      "doc_count": 1
+    },
+    {
+      "name": "cognitive_biases",
+      "type": "cognitive_bias",
+      "doc_count": 1
+    },
+    {
+      "name": "methodologies",
+      "type": "deprogramming_vector",
+      "doc_count": 1
+    }
+  ]
+}
