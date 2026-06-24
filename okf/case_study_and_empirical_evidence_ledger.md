@@ -5,7 +5,7 @@ description: Standardized repository documenting historical case studies, empiri
 resource: https://github.com/mbgulden/belief-deprogrammer/blob/main/okf/case_study_and_empirical_evidence_ledger.md
 tags: [case-study, evidence, ledger, research]
 timestamp: 2026-06-23T08:00:00Z
-linear_issue: GRO-2180
+linear_issue: GRO-2181
 git_repo: mbgulden/belief-deprogrammer
 git_path: okf/case_study_and_empirical_evidence_ledger.md
 last_verified: 2026-06-23
