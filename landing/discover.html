@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discover & Explore — Belief Deprogrammer</title>
+<meta name="description" content="Explore the interconnected knowledge graph of cognitive biases, deprogramming methodologies, case studies, and empirical evidence. Find and analyze psychological conditioning.">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Georgia&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-dark: #070716;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --bg-card-hover: rgba(255, 255, 255, 0.06);
+    --border-light: rgba(255, 255, 255, 0.08);
+    --border-active: rgba(0, 255, 255, 0.3);
+    --text-primary: #e2e2e8;
+    --text-muted: #8e8eaf;
+    --cyan: #00ffff;
+    --magenta: #ff0055;
+    --green: #00ff55;
+    --gold: #ffaa00;
+    --blue: #3b82f6;
+    --purple: #8b5cf6;
+    --font-sans: 'Outfit', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-serif: 'Georgia', serif;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #111126 50%, var(--bg-dark) 100%);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Navigation */
+  nav {
+    padding: 16px 24px;
+    display: flex; gap: 24px; justify-content: center;
+    border-bottom: 1px solid var(--border-light);
+    background: rgba(7, 7, 22, 0.6);
+    backdrop-filter: blur(12px);
+    position: sticky; top: 0; z-index: 100;
+  }
+  nav a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  nav a:hover { color: var(--cyan); }
+  nav a.active { color: var(--cyan); border-bottom: 2px solid var(--cyan); padding-bottom: 4px; }
+
+  /* Dashboard Container */
+  .dashboard {
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 24px;
+    flex: 1;
+  }
+
+  /* Left Panel: Search & Controls */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: calc(100vh - 120px);
+    position: sticky;
+    top: 80px;
+  }
+
+  .glass-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+  }
+  .glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .panel-title {
+    margin: 0 0 16px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Search Input */
+  .search-box {
+    position: relative;
+  }
+  .search-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-family: var(--font-sans);
+    transition: all 0.2s ease;
+  }
+  .search-input:focus {
+    outline: none;
+    border-color: var(--cyan);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+  }
+
+  /* Faceted Filters */
+  .filter-group {
+    margin-bottom: 16px;
+  }
+  .filter-group label {
+    display: block;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .type-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .type-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-primary);
+  }
+  .type-option input {
+    cursor: pointer;
+    accent-color: var(--cyan);
+  }
+  .color-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-height: 120px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  .tag-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-light);
+    color: var(--text-muted);
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .tag-pill:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .tag-pill.active {
+    background: rgba(0, 255, 255, 0.15);
+    border-color: var(--cyan);
+    color: var(--cyan);
+  }
+
+  /* Results List */
+  .results-list-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .result-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .result-item:hover {
+    background: var(--bg-card-hover);
+    transform: translateX(2px);
+  }
+  .result-item.selected {
+    background: rgba(0, 255, 255, 0.06);
+    border-color: var(--cyan);
+  }
+  .result-item-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 0 4px;
+  }
+  .result-item-type {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: var(--font-mono);
+  }
+
+  /* Right Panel: Visualization & Inspector */
+  .main-panel {
+    display: grid;
+    grid-template-rows: 550px 1fr;
+    gap: 24px;
+  }
+
+  /* Interactive Graph Visualizer */
+  .graph-container {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    min-height: 400px;
+  }
+  #graph-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: grab;
+  }
+  #graph-canvas:active {
+    cursor: grabbing;
+  }
+  .graph-controls-overlay {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+  }
+  .overlay-btn {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+    padding: 8px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
+  }
+  .overlay-btn:hover {
+    background: rgba(0, 255, 255, 0.15);
+    border-color: var(--cyan);
+    color: var(--cyan);
+  }
+
+  /* Details Panel / Inspector */
+  .inspector {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
+  }
+  .inspector-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .inspector-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .inspector-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .badge {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: inline-block;
+  }
+
+  .inspector-description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin: 8px 0;
+  }
+
+  .inspector-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .inspector-tag {
+    background: rgba(255,255,255,0.05);
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--text-muted);
+  }
+
+  .inspector-relations-panel {
+    border-left: 1px solid var(--border-light);
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .relations-title {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 8px;
+  }
+  .relations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 180px;
+    overflow-y: auto;
+  }
+  .relation-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 13px;
+  }
+  .relation-link:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .relation-name {
+    font-weight: 500;
+  }
+  .relation-type {
+    font-size: 9px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+  }
+
+  .empty-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 14px;
+    text-align: center;
+    border: 1px dashed var(--border-light);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  /* Empirical Integration Section */
+  .empirical-banner {
+    background: linear-gradient(135deg, rgba(0, 255, 85, 0.05) 0%, rgba(0, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(0, 255, 85, 0.15);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 16px;
+  }
+  .empirical-banner-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .empirical-banner-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--green);
+  }
+  .empirical-banner-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-primary);
+  }
+
+  /* Responsive styling */
+  @media (max-width: 1024px) {
+    .dashboard {
+      grid-template-columns: 1fr;
+    }
+    .sidebar {
+      height: auto;
+      position: static;
+    }
+    .main-panel {
+      grid-template-rows: 450px auto;
+    }
+    .inspector {
+      grid-template-columns: 1fr;
+    }
+    .inspector-relations-panel {
+      border-left: none;
+      border-top: 1px solid var(--border-light);
+      padding-left: 0;
+      padding-top: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav id="global-nav">
+  <a href="index.html">Generate Workbook</a>
+  <a href="philosophy.html">Philosophy</a>
+  <a href="research.html">Research Guide</a>
+  <a href="sources.html">Sources & Credits</a>
+  <a href="discover.html" class="active">Discover</a>
+</nav>
+
+<div class="dashboard">
+  <!-- Left Side: Controls & Results -->
+  <div class="sidebar">
+    <!-- Search Card -->
+    <div class="glass-card">
+      <h3 class="panel-title">🔎 Search & Filter</h3>
+      <div class="search-box">
+        <input type="text" id="search-input" class="search-input" placeholder="Type query (e.g. backfire, trauma)...">
+      </div>
+      
+      <div style="margin-top: 16px;">
+        <div class="filter-group">
+          <label>Filter by Type</label>
+          <div class="type-filters" id="type-filters-container">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Popular Tags</label>
+          <div class="tag-container" id="tags-container">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results List Card -->
+    <div class="glass-card" style="flex: 1; display: flex; flex-direction: column;">
+      <h3 class="panel-title" id="results-count-title">Nodes (0)</h3>
+      <div class="results-list-container" id="results-container">
+        <!-- Loaded dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Side: Visualization & Details -->
+  <div class="main-panel">
+    <!-- Network Graph Visualizer -->
+    <div class="glass-card graph-container">
+      <h3 class="panel-title" style="position: absolute; top: 16px; left: 20px; z-index: 10; pointer-events: none;">🕸️ Relational Knowledge Graph</h3>
+      <canvas id="graph-canvas"></canvas>
+      <div class="graph-controls-overlay">
+        <button class="overlay-btn" id="btn-zoom-in">Zoom In</button>
+        <button class="overlay-btn" id="btn-zoom-out">Zoom Out</button>
+        <button class="overlay-btn" id="btn-reset-layout">Reset Layout</button>
+      </div>
+    </div>
+
+    <!-- Inspector / Detailed view -->
+    <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+      <div id="inspector-content" class="inspector" style="display: none;">
+        <!-- Left Side of Inspector: Node Detail -->
+        <div class="inspector-details">
+          <div class="inspector-title-row">
+            <h2 class="inspector-title" id="node-title">Cognitive Dissonance</h2>
+            <span class="badge" id="node-badge" style="margin-top: 4px;">cognitive_bias</span>
+          </div>
+          <div id="node-meta-row" style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 4px;">
+            Path: <span id="node-path">...</span>
+          </div>
+          <p class="inspector-description" id="node-description">
+            The mental discomfort experienced by someone who holds two or more contradictory beliefs, ideas, or values.
+          </p>
+          <div>
+            <label style="display: block; font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">Tags</label>
+            <div class="inspector-tags" id="node-tags">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+          <div style="margin-top: 8px;">
+            <a id="btn-view-raw-file" class="overlay-btn" style="display: inline-block; text-decoration: none;" href="#" target="_blank">View Raw Document ↗</a>
+          </div>
+        </div>
+
+        <!-- Right Side of Inspector: Relations List -->
+        <div class="inspector-relations-panel">
+          <h4 class="relations-title">Semantic Relations (Bidirectional)</h4>
+          <div class="relations-list" id="node-relations">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <div id="inspector-empty" class="empty-state">
+        Select a node in the sidebar list or click one in the interactive knowledge graph to inspect its properties, tags, and cross-references.
+      </div>
+
+      <!-- Empirical Integration Banner -->
+      <div class="empirical-banner">
+        <div class="empirical-banner-header">
+          <span style="font-size: 16px;">🔬</span>
+          <h4 class="empirical-banner-title">Empirical Evidence Integration</h4>
+        </div>
+        <p class="empirical-banner-text">
+          Phase 3 establishes mathematically and experimentally validated links between abstract 
+          deprogramming modalities (e.g. Socratic Questioning, Emotion Code) and concrete clinical/historical 
+          studies (e.g. Michael's Workbook Case study, Morning Sickness study). Browse cases and biases to 
+          view empirical metrics and deconditioning outcome scores.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Data state
+let allNodes = [];
+let nodeMap = {};
+let selectedNodeId = null;
+let activeFilters = {
+  types: [],
+  tag: null
+};
+
+// Physics visualizer state
+const canvas = document.getElementById('graph-canvas');
+const ctx = canvas.getContext('2d');
+let graphNodes = [];
+let graphLinks = [];
+let dragNode = null;
+let hoverNode = null;
+let transform = { x: 0, y: 0, scale: 1.0 };
+let animationFrameId = null;
+
+// Colors by node type
+const typeColors = {
+  'manifesto': 'cyan',
+  'index': 'cyan',
+  'cognitive_bias': 'magenta',
+  'deprogramming_vector': 'gold',
+  'case_study': 'green',
+  'empirical_trial': 'green',
+  'audit': 'blue',
+  'research': 'purple'
+};
+
+const hexColors = {
+  'cyan': '#00ffff',
+  'magenta': '#ff0055',
+  'gold': '#ffaa00',
+  'green': '#00ff55',
+  'blue': '#3b82f6',
+  'purple': '#8b5cf6'
+};
+
+// Fetch data on load
+window.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const resp = await fetch('okf/output/belief-deprogrammer-profile.json');
+    if (!resp.ok) throw new Error("Failed to load profile database");
+    const data = await resp.json();
+    allNodes = data.okf_docs || [];
+    
+    // Normalize data
+    allNodes.forEach(node => {
+      nodeMap[node.relative] = node;
+    });
+
+    // Populate filters
+    initFilters();
+    
+    // Initial display
+    filterAndDisplay();
+
+    // Start graph visualizer
+    initGraph();
+    
+    // Add canvas size change watcher
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+  } catch (err) {
+    console.error(err);
+    document.getElementById('results-container').innerHTML = 
+      `<div class="error" style="color:var(--magenta);padding:20px;text-align:center;">
+        Error loading discovery index. Make sure the database exists.
+       </div>`;
+  }
+});
+
+// Setup filters UI
+function initFilters() {
+  // Collect all unique types and tags
+  const types = new Set();
+  const tagCounts = {};
+  
+  allNodes.forEach(node => {
+    if (node.type) types.add(node.type);
+    if (node.tags && Array.isArray(node.tags)) {
+      node.tags.forEach(tag => {
+        tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+      });
+    }
+  });
+
+  // Populate types checkboxes
+  const typeContainer = document.getElementById('type-filters-container');
+  typeContainer.innerHTML = '';
+  Array.from(types).sort().forEach(type => {
+    const colorName = typeColors[type] || 'blue';
+    const hex = hexColors[colorName] || '#fff';
+    
+    const label = document.createElement('label');
+    label.className = 'type-option';
+    label.innerHTML = `
+      <input type="checkbox" value="${type}">
+      <span class="color-dot" style="background-color: ${hex}; box-shadow: 0 0 6px ${hex}"></span>
+      <span>${type.replace('_', ' ')}</span>
+    `;
+    label.querySelector('input').addEventListener('change', (e) => {
+      if (e.target.checked) {
+        activeFilters.types.push(type);
+      } else {
+        activeFilters.types = activeFilters.types.filter(t => t !== type);
+      }
+      filterAndDisplay();
+    });
+    typeContainer.appendChild(label);
+  });
+
+  // Populate popular tags
+  const tagsContainer = document.getElementById('tags-container');
+  tagsContainer.innerHTML = '';
+  // Sort tags by frequency
+  const sortedTags = Object.keys(tagCounts).sort((a,b) => tagCounts[b] - tagCounts[a]);
+  sortedTags.slice(0, 15).forEach(tag => {
+    const pill = document.createElement('span');
+    pill.className = 'tag-pill';
+    pill.textContent = `${tag} (${tagCounts[tag]})`;
+    pill.addEventListener('click', () => {
+      if (activeFilters.tag === tag) {
+        activeFilters.tag = null;
+        pill.classList.remove('active');
+      } else {
+        // Clear active classes
+        document.querySelectorAll('.tag-pill').forEach(el => el.classList.remove('active'));
+        activeFilters.tag = tag;
+        pill.classList.add('active');
+      }
+      filterAndDisplay();
+    });
+    tagsContainer.appendChild(pill);
+  });
+
+  // Setup search text listener
+  document.getElementById('search-input').addEventListener('input', () => {
+    filterAndDisplay();
+  });
+
+  // Setup overlay controls
+  document.getElementById('btn-zoom-in').addEventListener('click', () => { transform.scale *= 1.2; });
+  document.getElementById('btn-zoom-out').addEventListener('click', () => { transform.scale /= 1.2; });
+  document.getElementById('btn-reset-layout').addEventListener('click', () => {
+    transform = { x: 0, y: 0, scale: 1.0 };
+    resetPositions();
+  });
+}
+
+// Perform search and filter, update list display
+function filterAndDisplay() {
+  const query = document.getElementById('search-input').value.toLowerCase().trim();
+  
+  const filtered = allNodes.filter(node => {
+    // Type filter
+    if (activeFilters.types.length > 0 && !activeFilters.types.includes(node.type)) {
+      return false;
+    }
+    // Tag filter
+    if (activeFilters.tag && (!node.tags || !node.tags.includes(activeFilters.tag))) {
+      return false;
+    }
+    // Text search
+    if (query) {
+      const matchTitle = node.title && node.title.toLowerCase().includes(query);
+      const matchDesc = node.description && node.description.toLowerCase().includes(query);
+      const matchTags = node.tags && node.tags.some(t => t.toLowerCase().includes(query));
+      const matchRel = node.relative && node.relative.toLowerCase().includes(query);
+      return matchTitle || matchDesc || matchTags || matchRel;
+    }
+    return true;
+  });
+
+  // Update results title count
+  document.getElementById('results-count-title').textContent = `Nodes (${filtered.length})`;
+
+  // Render list
+  const container = document.getElementById('results-container');
+  container.innerHTML = '';
+  
+  if (filtered.length === 0) {
+    container.innerHTML = `<div style="color:var(--text-muted);font-style:italic;padding:12px;text-align:center;">No matching nodes found.</div>`;
+    return;
+  }
+
+  filtered.forEach(node => {
+    const item = document.createElement('div');
+    item.className = 'result-item';
+    if (selectedNodeId === node.relative) {
+      item.classList.add('selected');
+    }
+    
+    const colorName = typeColors[node.type] || 'blue';
+    const hex = hexColors[colorName] || '#fff';
+    
+    item.innerHTML = `
+      <div class="result-item-title">${node.title}</div>
+      <div class="result-item-type" style="color: ${hex}">${node.type.replace('_', ' ')}</div>
+    `;
+    
+    item.addEventListener('click', () => {
+      selectNode(node.relative);
+    });
+    
+    container.appendChild(item);
+  });
+
+  // Highlight filtered nodes in graph
+  updateGraphSelection(filtered);
+}
+
+// Select a node and open the inspector
+function selectNode(relativeId) {
+  selectedNodeId = relativeId;
+  
+  // Highlight in results list
+  document.querySelectorAll('.result-item').forEach(el => {
+    el.classList.remove('selected');
+  });
+  
+  // Find current result item in UI and add select class
+  const items = document.querySelectorAll('.result-item');
+  allNodes.forEach((node, idx) => {
+    if (node.relative === relativeId) {
+      // Find list elements
+      const listItems = Array.from(document.querySelectorAll('.result-item'));
+      const matchItem = listItems.find(el => el.querySelector('.result-item-title').textContent === node.title);
+      if (matchItem) matchItem.classList.add('selected');
+    }
+  });
+
+  const node = nodeMap[relativeId];
+  if (!node) return;
+
+  // Render Inspector
+  document.getElementById('inspector-empty').style.display = 'none';
+  const content = document.getElementById('inspector-content');
+  content.style.display = 'grid';
+
+  document.getElementById('node-title').textContent = node.title;
+  document.getElementById('node-badge').textContent = node.type.replace('_', ' ');
+  
+  const colorName = typeColors[node.type] || 'blue';
+  const hex = hexColors[colorName] || '#fff';
+  const badge = document.getElementById('node-badge');
+  badge.style.backgroundColor = `${hex}15`;
+  badge.style.border = `1px solid ${hex}40`;
+  badge.style.color = hex;
+
+  document.getElementById('node-path').textContent = node.relative;
+  document.getElementById('node-description').textContent = node.description || 'No description provided.';
+  
+  // Setup Raw file link
+  // Point to the local path relative to workspace or direct file schema
+  document.getElementById('btn-view-raw-file').href = `file://${node.path}`;
+
+  // Tags
+  const tagsContainer = document.getElementById('node-tags');
+  tagsContainer.innerHTML = '';
+  if (node.tags && node.tags.length > 0) {
+    node.tags.forEach(t => {
+      const tagEl = document.createElement('span');
+      tagEl.className = 'inspector-tag';
+      tagEl.textContent = t;
+      tagsContainer.appendChild(tagEl);
+    });
+  } else {
+    tagsContainer.innerHTML = `<span style="font-size:11px;color:var(--text-muted);font-style:italic;">None</span>`;
+  }
+
+  // Relations
+  const relationsContainer = document.getElementById('node-relations');
+  relationsContainer.innerHTML = '';
+  if (node.relations && node.relations.length > 0) {
+    node.relations.forEach(relId => {
+      const relNode = nodeMap[relId];
+      if (relNode) {
+        const link = document.createElement('div');
+        link.className = 'relation-link';
+        const relColor = typeColors[relNode.type] || 'blue';
+        const relHex = hexColors[relColor] || '#fff';
+        
+        link.innerHTML = `
+          <span class="relation-name">${relNode.title}</span>
+          <span class="relation-type" style="color: ${relHex}">${relNode.type.replace('_', ' ')}</span>
+        `;
+        link.addEventListener('click', () => {
+          selectNode(relId);
+          centerOnNode(relId);
+        });
+        relationsContainer.appendChild(link);
+      }
+    });
+  } else {
+    relationsContainer.innerHTML = `<div style="font-size:12px;color:var(--text-muted);font-style:italic;">No direct connections.</div>`;
+  }
+
+  // Highlight node in visual graph
+  highlightNodeInGraph(relativeId);
+}
+
+// -------------------------------------------------------------
+// Interactive 2D Network Physics Simulation (Canvas)
+// -------------------------------------------------------------
+function resizeCanvas() {
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width;
+  canvas.height = rect.height;
+}
+
+function initGraph() {
+  // Populate graph structures from allNodes data
+  graphNodes = allNodes.map(node => ({
+    id: node.relative,
+    title: node.title,
+    type: node.type,
+    x: (Math.random() - 0.5) * 300,
+    y: (Math.random() - 0.5) * 300,
+    vx: 0,
+    vy: 0,
+    radius: node.type === 'index' || node.type === 'manifesto' ? 14 : 10,
+    highlighted: false,
+    selected: false,
+    visible: true
+  }));
+
+  // Build links
+  graphLinks = [];
+  allNodes.forEach(node => {
+    if (node.relations) {
+      node.relations.forEach(targetId => {
+        // Avoid duplicate links in undirected graph representation
+        const linkExists = graphLinks.some(l => 
+          (l.source === node.relative && l.target === targetId) ||
+          (l.source === targetId && l.target === node.relative)
+        );
+        if (!linkExists && nodeMap[targetId]) {
+          graphLinks.push({
+            source: node.relative,
+            target: targetId
+          });
+        }
+      });
+    }
+  });
+
+  // Setup interactions
+  canvas.addEventListener('mousedown', onMouseDown);
+  canvas.addEventListener('mousemove', onMouseMove);
+  canvas.addEventListener('mouseup', onMouseUp);
+  canvas.addEventListener('wheel', onWheel);
+
+  // Start physics loop
+  if (animationFrameId) cancelAnimationFrame(animationFrameId);
+  physicsLoop();
+}
+
+function resetPositions() {
+  graphNodes.forEach(n => {
+    n.x = (Math.random() - 0.5) * 200;
+    n.y = (Math.random() - 0.5) * 200;
+    n.vx = 0;
+    n.vy = 0;
+  });
+}
+
+function centerOnNode(nodeId) {
+  const node = graphNodes.find(n => n.id === nodeId);
+  if (node) {
+    transform.x = -node.x * transform.scale;
+    transform.y = -node.y * transform.scale;
+  }
+}
+
+function updateGraphSelection(filteredNodes) {
+  const ids = new Set(filteredNodes.map(n => n.relative));
+  graphNodes.forEach(n => {
+    n.visible = ids.has(n.id);
+  });
+}
+
+function highlightNodeInGraph(nodeId) {
+  graphNodes.forEach(n => {
+    n.selected = n.id === nodeId;
+    // Highlight neighbours as well
+    if (n.id === nodeId) {
+      n.highlighted = true;
+    } else {
+      const isNeighbor = allNodes.find(d => d.relative === nodeId)?.relations?.includes(n.id) ||
+                         allNodes.find(d => d.relative === n.id)?.relations?.includes(nodeId);
+      n.highlighted = !!isNeighbor;
+    }
+  });
+}
+
+// Simple force-directed update step
+function updatePhysics() {
+  const kCenter = 0.01;      // Force pulling nodes to center
+  const kRepulsion = 1200;    // Repulsion constant between nodes
+  const kSpring = 0.06;       // Link spring constant
+  const dSpring = 90;        // Desired spring length
+  const damping = 0.85;       // Velocity friction
+
+  // Repulsion between visible node pairs (Coulomb's Law)
+  for (let i = 0; i < graphNodes.length; i++) {
+    const n1 = graphNodes[i];
+    if (!n1.visible) continue;
+    
+    // Pull to center slightly
+    n1.vx -= n1.x * kCenter;
+    n1.vy -= n1.y * kCenter;
+
+    for (let j = i + 1; j < graphNodes.length; j++) {
+      const n2 = graphNodes[j];
+      if (!n2.visible) continue;
+
+      const dx = n2.x - n1.x;
+      const dy = n2.y - n1.y;
+      const distSq = dx * dx + dy * dy + 0.1;
+      const dist = Math.sqrt(distSq);
+
+      if (dist < 400) {
+        // Push force
+        const force = kRepulsion / distSq;
+        const fx = (dx / dist) * force;
+        const fy = (dy / dist) * force;
+
+        n1.vx -= fx;
+        n1.vy -= fy;
+        n2.vx += fx;
+        n2.vy += fy;
+      }
+    }
+  }
+
+  // Link spring forces (Hooke's Law)
+  graphLinks.forEach(link => {
+    const sNode = graphNodes.find(n => n.id === link.source);
+    const tNode = graphNodes.find(n => n.id === link.target);
+
+    if (sNode && tNode && sNode.visible && tNode.visible) {
+      const dx = tNode.x - sNode.x;
+      const dy = tNode.y - sNode.y;
+      const dist = Math.sqrt(dx * dx + dy * dy) + 0.1;
+      
+      const force = (dist - dSpring) * kSpring;
+      const fx = (dx / dist) * force;
+      const fy = (dy / dist) * force;
+
+      sNode.vx += fx;
+      sNode.vy += fy;
+      tNode.vx -= fx;
+      tNode.vy -= fy;
+    }
+  });
+
+  // Apply velocity & limits
+  graphNodes.forEach(n => {
+    if (!n.visible) return;
+    if (n === dragNode) {
+      n.vx = 0;
+      n.vy = 0;
+      return;
+    }
+    
+    n.x += n.vx;
+    n.y += n.vy;
+    n.vx *= damping;
+    n.vy *= damping;
+  });
+}
+
+function drawGraph() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.save();
+  
+  // Center coordinates and apply transformations
+  ctx.translate(canvas.width / 2 + transform.x, canvas.height / 2 + transform.y);
+  ctx.scale(transform.scale, transform.scale);
+
+  // Draw links
+  ctx.lineWidth = 1;
+  graphLinks.forEach(link => {
+    const s = graphNodes.find(n => n.id === link.source);
+    const t = graphNodes.find(n => n.id === link.target);
+    if (s && t && s.visible && t.visible) {
+      const isHighlightedLink = (s.selected && t.highlighted) || (t.selected && s.highlighted);
+      ctx.strokeStyle = isHighlightedLink ? 'rgba(0, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.08)';
+      ctx.lineWidth = isHighlightedLink ? 2 : 1;
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y);
+      ctx.lineTo(t.x, t.y);
+      ctx.stroke();
+    }
+  });
+
+  // Draw nodes
+  graphNodes.forEach(n => {
+    if (!n.visible) return;
+
+    const colorName = typeColors[n.type] || 'blue';
+    const hex = hexColors[colorName] || '#fff';
+
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.radius, 0, 2 * Math.PI);
+    
+    // Filled styling
+    ctx.fillStyle = hex;
+    ctx.shadowBlur = 0;
+    
+    if (n.selected) {
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+      ctx.shadowColor = hex;
+      ctx.shadowBlur = 12;
+    } else if (n.highlighted) {
+      ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.shadowColor = hex;
+      ctx.shadowBlur = 6;
+    }
+    
+    ctx.fill();
+    ctx.shadowBlur = 0; // Reset shadow
+
+    // Text labels for selected or hovered nodes
+    const isHovered = (hoverNode === n);
+    if (n.selected || isHovered || transform.scale > 0.8) {
+      ctx.fillStyle = n.selected ? '#ffffff' : 'rgba(255,255,255,0.85)';
+      ctx.font = n.selected ? 'bold 11px Outfit' : '10px Outfit';
+      ctx.textAlign = 'center';
+      ctx.fillText(n.title, n.x, n.y - n.radius - 6);
+    }
+  });
+
+  ctx.restore();
+}
+
+function physicsLoop() {
+  updatePhysics();
+  drawGraph();
+  animationFrameId = requestAnimationFrame(physicsLoop);
+}
+
+// Canvas interactions
+let isDraggingViewport = false;
+let startMousePos = { x: 0, y: 0 };
+let startTransform = { x: 0, y: 0 };
+
+function getLocalMouse(e) {
+  const rect = canvas.getBoundingClientRect();
+  const rawX = e.clientX - rect.left - rect.width / 2;
+  const rawY = e.clientY - rect.top - rect.height / 2;
+  
+  // Back-project transform
+  return {
+    x: (rawX - transform.x) / transform.scale,
+    y: (rawY - transform.y) / transform.scale
+  };
+}
+
+function onMouseDown(e) {
+  const mouse = getLocalMouse(e);
+  
+  // Check if click hits a node
+  let hit = null;
+  for (let i = graphNodes.length - 1; i >= 0; i--) {
+    const n = graphNodes[i];
+    if (!n.visible) continue;
+    const dx = n.x - mouse.x;
+    const dy = n.y - mouse.y;
+    if (dx*dx + dy*dy <= (n.radius + 6)*(n.radius + 6)) {
+      hit = n;
+      break;
+    }
+  }
+
+  if (hit) {
+    dragNode = hit;
+  } else {
+    isDraggingViewport = true;
+    startMousePos = { x: e.clientX, y: e.clientY };
+    startTransform = { ...transform };
+  }
+}
+
+function onMouseMove(e) {
+  const mouse = getLocalMouse(e);
+  
+  if (dragNode) {
+    dragNode.x = mouse.x;
+    dragNode.y = mouse.y;
+  } else if (isDraggingViewport) {
+    const dx = e.clientX - startMousePos.x;
+    const dy = e.clientY - startMousePos.y;
+    transform.x = startTransform.x + dx;
+    transform.y = startTransform.y + dy;
+  } else {
+    // Check hover
+    let hit = null;
+    for (let i = graphNodes.length - 1; i >= 0; i--) {
+      const n = graphNodes[i];
+      if (!n.visible) continue;
+      const dx = n.x - mouse.x;
+      const dy = n.y - mouse.y;
+      if (dx*dx + dy*dy <= (n.radius + 6)*(n.radius + 6)) {
+        hit = n;
+        break;
+      }
+    }
+    hoverNode = hit;
+  }
+}
+
+function onMouseUp(e) {
+  if (dragNode) {
+    // If drag didn't move far, treat it as a click / selection
+    selectNode(dragNode.id);
+    dragNode = null;
+  }
+  isDraggingViewport = false;
+}
+
+function onWheel(e) {
+  e.preventDefault();
+  const zoomFactor = 1.1;
+  if (e.deltaY < 0) {
+    transform.scale *= zoomFactor;
+  } else {
+    transform.scale /= zoomFactor;
+  }
+}
+</script>
+</body>
+</html>
