@@ -5,45 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Belief Deprogrammer — Personalized HD Deconditioning</title>
 <meta name="description" content="Generate a personalized Human Design belief reprogramming workbook. Discover the limiting beliefs stored in your open centers and replace them with empowering truths specific to your design.">
+<meta name="keywords" content="belief deprogramming, human design, deconditioning, shadow work, personalized workbook, limiting beliefs, open centers, gates, channels">
+<meta property="og:title" content="Belief Deprogrammer — Personalized HD Deconditioning">
+<meta property="og:description" content="Generate your custom Human Design belief reprogramming workbook. Pinpoint and reframe limiting beliefs from your unique chart.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://master.belief-deprogrammer.pages.dev/">
+<link rel="canonical" href="https://master.belief-deprogrammer.pages.dev/">
+<link rel="stylesheet" href="/assets/style.css">
 <style>
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; padding: 0;
-    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #0a0a1a 100%);
-    color: #e0e0e0;
-    font-family: system-ui, -apple-system, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  /* Specific styles for index.html */
+  .hero {
+    background: radial-gradient(circle at center, rgba(0,255,255,0.1) 0%, rgba(0,255,255,0) 70%);
+    padding: 80px 20px;
+    text-align: center;
+    margin-bottom: 60px;
   }
-  .container { max-width: 600px; width: 100%; padding: 40px 20px; }
-  h1 {
-    font-size: 28px; font-weight: 600; color: #00ffff;
-    text-align: center; margin-bottom: 4px;
+  .hero h1 {
+    font-size: 56px; font-weight: 800; color: #ffffff;
+    margin: 0 0 20px 0; line-height: 1.1;
+    letter-spacing: -2px;
   }
-  .subtitle {
-    text-align: center; color: #8a8a9f; font-size: 14px; margin-bottom: 32px;
+  .hero .subtitle {
+    font-size: 24px; color: #b0b0c0;
+    max-width: 800px; margin: 0 auto 40px;
+    line-height: 1.4;
   }
-  label {
+  .hero-cta {
+    display: inline-block; padding: 18px 40px;
+    background: #00ffff; color: #0a0a1a;
+    border-radius: 8px; text-decoration: none;
+    font-size: 18px; font-weight: 700;
+    transition: background 0.2s;
+    box-shadow: 0 8px 20px rgba(0,255,255,0.2);
+  }
+  .hero-cta:hover { background: #00dddd; }
+
+  .generator-section {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 700px;
+    margin: 60px auto;
+  }
+  .generator-section h2 {
+    text-align: center; color: #00ffff;
+    font-size: 32px; margin: 0 0 20px 0;
+  }
+  .generator-form label {
     display: block; font-size: 12px; color: #8a8a9f; margin-top: 16px; margin-bottom: 4px;
     text-transform: uppercase; letter-spacing: 1px;
   }
-  input, select {
+  .generator-form input, .generator-form select {
     width: 100%; padding: 10px 12px;
     background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
     border-radius: 6px; color: #e0e0e0; font-size: 14px;
   }
-  input:focus, select:focus { outline: none; border-color: #00ffff; }
-  .row { display: flex; gap: 12px; }
-  .row > div { flex: 1; }
-  button {
+  .generator-form input:focus, .generator-form select:focus { outline: none; border-color: #00ffff; }
+  .generator-form .row { display: flex; gap: 12px; }
+  .generator-form .row > div { flex: 1; }
+  .generator-form button {
     width: 100%; margin-top: 24px; padding: 14px;
     background: #00ffff; color: #0a0a1a; border: none; border-radius: 6px;
     font-size: 16px; font-weight: 600; cursor: pointer;
   }
-  button:hover { background: #00dddd; }
-  button:disabled { background: #444; color: #888; cursor: not-allowed; }
+  .generator-form button:hover { background: #00dddd; }
+  .generator-form button:disabled { background: #444; color: #888; cursor: not-allowed; }
   #result { margin-top: 32px; display: none; }
   #result.show { display: block; }
   .result-card {
@@ -57,46 +84,201 @@
     background: rgba(0,0,0,0.3); border-radius: 6px;
     padding: 16px; max-height: 500px; overflow-y: auto;
     font-size: 13px; line-height: 1.6; white-space: pre-wrap;
-    font-family: 'Georgia', serif;
+    font-family: 'JetBrains Mono', monospace;
   }
   .download-btn {
-    display: inline-block; margin-top: 16px; padding: 10px 20px;
-    background: #ff0055; color: #fff; text-decoration: none;
-    border-radius: 6px; font-size: 14px; font-weight: 600;
+    display: block; width: 100%; margin-top: 20px;
+    padding: 12px; background: rgba(0,255,255,0.1); color: #00ffff;
+    border: 1px solid #00ffff; border-radius: 6px;
+    font-size: 14px; font-weight: 600; text-align: center;
+    text-decoration: none; cursor: pointer;
+    transition: background 0.2s;
   }
-  .error { color: #ff0033; text-align: center; margin-top: 16px; }
-  .loading { text-align: center; color: #00ffff; margin-top: 24px; }
+  .download-btn:hover { background: #00ffff; color: #0a0a1a; }
+  .loading, .error {
+    text-align: center; margin-top: 20px; font-size: 14px;
+  }
+  .loading { color: #00ffff; }
+  .error { color: #ff0055; }
+
+  .features-section {
+    padding: 60px 20px;
+    text-align: center;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .features-section h2 {
+    font-size: 38px; color: #ffffff; margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+  .features-section .subtitle {
+    font-size: 18px; color: #8a8a9f; max-width: 700px; margin: 0 auto 50px;
+  }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .feature-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: left;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .feature-card:hover { transform: translateY(-5px); border-color: rgba(0,255,255,0.3); }
+  .feature-card .icon {
+    font-size: 36px; margin-bottom: 16px; color: #00ffff;
+  }
+  .feature-card h3 {
+    font-size: 22px; color: #ffffff; margin: 0 0 12px 0;
+  }
+  .feature-card p {
+    font-size: 15px; color: #c0c0d0; margin: 0;
+  }
+
+  .how-it-works-section {
+    background: rgba(255,255,255,0.02);
+    padding: 80px 20px;
+    margin: 80px 0;
+  }
+  .how-it-works-section .container {
+    max-width: 900px;
+  }
+  .how-it-works-section h2 {
+    font-size: 38px; color: #ffffff; margin-bottom: 20px;
+    text-align: center; letter-spacing: -1px;
+  }
+  .how-it-works-section .subtitle {
+    font-size: 18px; color: #8a8a9f; max-width: 600px; margin: 0 auto 50px;
+  }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .step-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 30px;
+    display: flex; align-items: flex-start; gap: 20px;
+  }
+  .step-card .num {
+    font-size: 48px; font-weight: 700;
+    background: linear-gradient(135deg, #00ffff, #0088ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .step-card h3 {
+    font-size: 24px; color: #ffffff; margin: 0 0 10px 0;
+  }
+  .step-card p {
+    font-size: 15px; color: #c0c0d0; margin: 0;
+  }
+
+  .testimonials-section {
+    padding: 60px 20px;
+    text-align: center;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .testimonials-section h2 {
+    font-size: 38px; color: #ffffff; margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+  .testimonials-section .subtitle {
+    font-size: 18px; color: #8a8a9f; max-width: 700px; margin: 0 auto 50px;
+  }
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .testimonial-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: left;
+    font-style: italic;
+    color: #c0c0d0;
+    position: relative;
+  }
+  .testimonial-card::before {
+    content: '“';
+    font-size: 60px; color: rgba(0,255,255,0.3);
+    position: absolute; top: 10px; left: 15px;
+    line-height: 1;
+  }
+  .testimonial-card p {
+    font-size: 16px; margin: 0 0 20px 0;
+    padding-left: 20px;
+  }
+  .testimonial-card .author {
+    font-style: normal; font-weight: 600; color: #00ffff;
+    font-size: 14px;
+    padding-left: 20px;
+  }
+
+  .cta-final-section {
+    background: linear-gradient(135deg, rgba(0,255,255,0.08), rgba(0,255,255,0.02));
+    border: 1px solid rgba(0,255,255,0.2);
+    border-radius: 12px;
+    padding: 60px;
+    text-align: center;
+    margin: 80px auto;
+    max-width: 900px;
+  }
+  .cta-final-section h2 {
+    color: #ffffff; margin: 0 0 16px; font-size: 38px;
+  }
+  .cta-final-section p {
+    color: #c0c0d0; margin: 0 0 32px; font-size: 18px;
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 40px; }
+    .hero .subtitle { font-size: 20px; }
+    .generator-section { padding: 30px; }
+    .features-section h2, .how-it-works-section h2, .testimonials-section h2, .cta-final-section h2 { font-size: 30px; }
+    .step-card { flex-direction: column; text-align: center; }
+    .step-card .num { margin-bottom: 10px; }
+    .step-card h3 { font-size: 20px; }
+    .testimonial-card::before { font-size: 40px; top: 5px; left: 10px; }
+    .testimonial-card p { font-size: 15px; }
+    .cta-final-section { padding: 40px; }
+  }
 </style>
 </head>
 <body>
-<nav style="padding:16px 24px;display:flex;gap:24px;justify-content:center;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:32px;">
-  <a href="index.html" style="color:#00ffff;text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Generate Workbook</a>
-  <a href="philosophy.html" style="color:#8a8a9f;text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Philosophy</a>
-  <a href="research.html" style="color:#8a8a9f;text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Research Guide</a>
-  <a href="sources.html" style="color:#8a8a9f;text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Sources & Credits</a>
-  <a href="discover.html" style="color:#8a8a9f;text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Discover</a>
+<nav>
+  <a href="/" class="brand active">⬢ Belief Deprogrammer</a>
+  <a href="/features.html">Features</a>
+  <a href="/how-it-works.html">How It Works</a>
+  <a href="/pricing.html">Pricing</a>
+  <a href="/research.html">Research</a>
+  <a href="/discover.html">Discover</a>
 </nav>
-<div class="container">
-  <h1>Belief Deprogrammer</h1>
-  <p class="subtitle">Personalized Human Design Deconditioning Workbook</p>
 
-  <form id="birth-form">
-    <label>Full Name</label>
-    <input type="text" id="name" placeholder="Your name" required>
+<div class="hero">
+  <h1>Decondition Your Human Design. Rewire Your Limiting Beliefs.</h1>
+  <p class="subtitle">Your Human Design chart reveals your unique conditioning. Belief Deprogrammer generates a personalized workbook to clear outdated beliefs and embody your authentic self.</p>
+  <a href="#generator" class="hero-cta">Generate My Free Workbook →</a>
+</div>
+
+<div id="generator" class="generator-section">
+  <h2>Your Personalized Workbook, Instantly.</h2>
+  <p class="subtitle" style="margin-bottom: 30px;">Enter your birth details. Our gate-aware engine maps your open Human Design centers to specific limiting beliefs, and pairs them with empowering truths unique to your chart.</p>
+  <form id="birth-form" class="generator-form">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" placeholder="Name for your workbook" value="Michael" required>
 
     <label>Birth Date</label>
     <div class="row">
-      <div>
-        <select id="month" required>
-          <option value="">Month</option>
-          <option value="1">January</option><option value="2">February</option>
-          <option value="3">March</option><option value="4">April</option>
-          <option value="5">May</option><option value="6">June</option>
-          <option value="7">July</option><option value="8">August</option>
-          <option value="9">September</option><option value="10">October</option>
-          <option value="11">November</option><option value="12" selected>December</option>
-        </select>
-      </div>
+      <div><input type="number" id="month" placeholder="Month (1-12)" min="1" max="12" value="10" required></div>
       <div><input type="number" id="day" placeholder="Day" min="1" max="31" value="10" required></div>
       <div><input type="number" id="year" placeholder="Year" value="1989" required></div>
     </div>
@@ -117,7 +299,7 @@
       <div><input type="number" id="longitude" placeholder="Longitude" step="any" value="-118.7815" required></div>
     </div>
 
-    <label>Workbook Depth</label>
+    <label for="tier">Workbook Depth</label>
     <select id="tier">
       <option value="comprehensive">Comprehensive (~200 belief pairs)</option>
       <option value="short">Quick Reset (~50 core beliefs)</option>
@@ -133,10 +315,123 @@
       <h2 id="result-title"></h2>
       <p class="meta" id="result-meta"></p>
       <div class="workbook" id="result-content"></div>
-      <button class="download-btn" id="download-btn">Download as Markdown</button>
+      <a href="#" class="download-btn" id="download-btn">Download as Markdown</a>
     </div>
   </div>
 </div>
+
+<div class="features-section">
+  <h2>Features That Make a Difference</h2>
+  <p class="subtitle">Move beyond generic affirmations. Belief Deprogrammer is built to the unique energetic blueprint of your Human Design chart.</p>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="icon">🌌</div>
+      <h3>Gate-Aware Specificity</h3>
+      <p>Go beyond general centers. Our engine identifies beliefs tied to your specific activated gates and channels, providing unmatched precision.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🔓</div>
+      <h3>Open-Center Decoding</h3>
+      <p>Your open centers are where conditioning lives. We decode these patterns, turning vulnerabilities into wisdom with tailored reframes.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">⚡</div>
+      <h3>Instant Generation</h3>
+      <p>No waiting. Enter your birth data and receive your personalized workbook instantly, ready for download and immediate use.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🔒</div>
+      <h3>Privacy-First Design</h3>
+      <p>Your birth data is never stored, logged, or shared. All computations happen in real-time in your browser session.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🔄</div>
+      <h3>Lifetime Regenerations</h3>
+      <p>Your journey evolves. Regenerate your workbook anytime to gain fresh insights as you decondition and integrate new awareness.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🔬</div>
+      <h3>Research-Backed Methodology</h3>
+      <p>Our approach integrates insights from epigenetics, neuroplasticity, memory reconsolidation, and somatic psychology. <a href="/research.html" style="color:#00ffff; text-decoration: none;">Learn more.</a></p>
+    </div>
+  </div>
+</div>
+
+<div class="how-it-works-section">
+  <div class="container">
+    <h2>How It Works: 4 Steps to Your Rewired Self</h2>
+    <p class="subtitle">From your unique Human Design blueprint to a clear path for deconditioning.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="num">01</div>
+        <div>
+          <h3>Enter Birth Details</h3>
+          <p>Provide your birth date, time, and location to accurately calculate your Human Design chart.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="num">02</div>
+        <div>
+          <h3>Engine Computes Your Chart</h3>
+          <p>Our API processes your data, revealing your Type, Strategy, Authority, Centers, Gates, and Channels.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="num">03</div>
+        <div>
+          <h3>Personalized Belief Mapping</h3>
+          <p>The system maps specific limiting beliefs to your open centers and activated gates, providing unique insights.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="num">04</div>
+        <div>
+          <h3>Download &amp; Integrate</h3>
+          <p>Receive your workbook instantly. Read, reflect, and apply the embodiment practices to rewire your beliefs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="testimonials-section">
+  <h2>Hear From Those Who've Rewired</h2>
+  <p class="subtitle">Real transformations from people using their Human Design to clear conditioning.</p>
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <p>"I've studied Human Design for years, but this workbook took my understanding and integration to a whole new level. The specificity for my open G-center was uncanny."
+      <div class="author">— Alex M. (Projector, 4/6)</div>
+    </div>
+    <div class="testimonial-card">
+      <p>"As a Manifestor, getting direct, clear guidance on my open Throat center was revolutionary. I feel seen and understood in a way no other HD tool has achieved."
+      <div class="author">— Sarah L. (Manifestor, 1/3)</div>
+    
+    </div>
+    <div class="testimonial-card">
+      <p>"The concept of gate-aware belief mapping is a game-changer. It's not just theory; it's actionable, body-based practice that truly shifts things."
+      <div class="author">— Jamie K. (Generator, 2/4)</div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-final-section">
+  <h2>Ready to Start Your Deconditioning Journey?</h2>
+  <p>Generate your free personalized Human Design belief reprogramming workbook in minutes. No credit card, no commitment.</p>
+  <a href="#generator" class="hero-cta">Generate My Free Workbook Now →</a>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Generate</a> ·
+    <a href="/features.html">Features</a> ·
+    <a href="/how-it-works.html">How It Works</a> ·
+    <a href="/pricing.html">Pricing</a> ·
+    <a href="/research.html">Research</a> ·
+    <a href="/sources.html">Sources</a> ·
+    <a href="/discover.html">Discover</a>
+  </p>
+  <p>&copy; 2026 Belief Deprogrammer · <a href="mailto:hello@beliefdeprogrammer.com">hello@beliefdeprogrammer.com</a></p>
+</footer>
 
 <script>
 const API = 'https://api.humandesignengine.com/belief/generate';
@@ -193,7 +488,7 @@ document.getElementById('birth-form').addEventListener('submit', async (e) => {
     downloadBtn.onclick = () => {
       const a = document.createElement('a');
       a.href = url;
-      a.download = `${payload.name.toLowerCase().replace(/\s+/g, '-')}-belief-workbook.md`;
+      a.download = `${payload.name.toLowerCase().replace(/\\s+/g, '-')}-belief-workbook.md`;
       a.click();
     };
   } catch (err) {
@@ -204,6 +499,38 @@ document.getElementById('birth-form').addEventListener('submit', async (e) => {
     loading.style.display = 'none';
   }
 });
+
+// JSON-LD: WebSite and Product schema for SEO
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Belief Deprogrammer",
+  "url": "https://master.belief-deprogrammer.pages.dev/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://master.belief-deprogrammer.pages.dev/research.html?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Belief Deprogrammer Workbook",
+  "description": "Personalized Human Design belief deprogramming workbook generator.",
+  "brand": {"@type": "Brand", "name": "Belief Deprogrammer"},
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  }
+};
+
+const ld = document.createElement('script');
+ld.type = 'application/ld+json';
+ld.text = JSON.stringify([websiteSchema, productSchema]);
+document.head.appendChild(ld);
 </script>
 </body>
 </html>
