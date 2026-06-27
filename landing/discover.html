@@ -1,773 +1,778 @@
-1|<!DOCTYPE html>
-2|<html lang="en">
-3|<head>
-4|<meta charset="UTF-8">
-5|<meta name="viewport" content="width=device-width, initial-scale=1.0">
-6|<title>Discover — Belief Deprogrammer | Knowledge Graph</title>
-7|<meta name="description" content="Explore the interconnected knowledge graph of cognitive biases, deprogramming methodologies, case studies, and empirical evidence. Find and analyze psychological conditioning.">
-8|<!-- Google Fonts -->
-9|<link rel="preconnect" href="https://fonts.googleapis.com">
-10|<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-11|<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Georgia&display=swap" rel="stylesheet">
-12|
-438|<link rel="canonical" href="https://master.belief-deprogrammer.pages.dev/discover.html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discover — Belief Deprogrammer | Knowledge Graph</title>
+<meta name="description" content="Explore the interconnected knowledge graph of cognitive biases, deprogramming methodologies, case studies, and empirical evidence. Find and analyze psychological conditioning.">
+<meta property="og:title" content="Discover — Belief Deprogrammer | Knowledge Graph">
+<meta property="og:description" content="Explore the interconnected knowledge graph of cognitive biases, deprogramming methodologies, case studies, and empirical evidence.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://master.belief-deprogrammer.pages.dev/discover.html">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Georgia&display=swap" rel="stylesheet">
+
+<link rel="canonical" href="https://master.belief-deprogrammer.pages.dev/discover.html">
 <link rel="stylesheet" href="/assets/style.css">
 </head>
-439|<body>
-440|
-441|<nav id="global-nav">
-442|  <a href="index.html">Generate Workbook</a>
-443|  <a href="philosophy.html">Philosophy</a>
-444|  <a href="research.html">Research Guide</a>
-445|  <a href="sources.html">Sources & Credits</a>
-446|  <a href="discover.html" class="active">Discover</a>
-447|</nav>
-448|
-449|<div class="dashboard">
-450|  <!-- Left Side: Controls & Results -->
-451|  <div class="sidebar">
-452|    <!-- Search Card -->
-453|    <div class="glass-card">
-454|      <h3 class="panel-title">🔎 Search & Filter</h3>
-455|      <div class="search-box">
-456|        <input type="text" id="search-input" class="search-input" placeholder="Type query (e.g. backfire, trauma)...">
-457|      </div>
-458|      
-459|      <div style="margin-top: 16px;">
-460|        <div class="filter-group">
-461|          <label>Filter by Type</label>
-462|          <div class="type-filters" id="type-filters-container">
-463|            <!-- Dynamically populated -->
-464|          </div>
-465|        </div>
-466|
-467|        <div class="filter-group">
-468|          <label>Popular Tags</label>
-469|          <div class="tag-container" id="tags-container">
-470|            <!-- Dynamically populated -->
-471|          </div>
-472|        </div>
-473|      </div>
-474|    </div>
-475|
-476|    <!-- Results List Card -->
-477|    <div class="glass-card" style="flex: 1; display: flex; flex-direction: column;">
-478|      <h3 class="panel-title" id="results-count-title">Nodes (0)</h3>
-479|      <div class="results-list-container" id="results-container">
-480|        <!-- Loaded dynamically -->
-481|      </div>
-482|    </div>
-483|  </div>
-484|
-485|  <!-- Right Side: Visualization & Details -->
-486|  <div class="main-panel">
-487|    <!-- Network Graph Visualizer -->
-488|    <div class="glass-card graph-container">
-489|      <h3 class="panel-title" style="position: absolute; top: 16px; left: 20px; z-index: 10; pointer-events: none;">🕸️ Relational Knowledge Graph</h3>
-490|      <canvas id="graph-canvas"></canvas>
-491|      <div class="graph-controls-overlay">
-492|        <button class="overlay-btn" id="btn-zoom-in">Zoom In</button>
-493|        <button class="overlay-btn" id="btn-zoom-out">Zoom Out</button>
-494|        <button class="overlay-btn" id="btn-reset-layout">Reset Layout</button>
-495|      </div>
-496|    </div>
-497|
-498|    <!-- Inspector / Detailed view -->
-499|    <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-500|      <div id="inspector-content" class="inspector" style="display: none;">
-501|        <!-- Left Side of Inspector: Node Detail -->
-502|        <div class="inspector-details">
-503|          <div class="inspector-title-row">
-504|
-505|            <span class="badge" id="node-badge" style="margin-top: 4px;">cognitive_bias</span>
-506|          </div>
-507|          <div id="node-meta-row" style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 4px;">
-508|            Path: <span id="node-path">...</span>
-509|          </div>
-510|          <p class="inspector-description" id="node-description">
-511|            The mental discomfort experienced by someone who holds two or more contradictory beliefs, ideas, or values.
-512|          </p>
-513|          <div>
-514|            <label style="display: block; font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">Tags</label>
-515|            <div class="inspector-tags" id="node-tags">
-516|              <!-- Dynamically populated -->
-517|            </div>
-518|          </div>
-519|          <div style="margin-top: 8px;">
-520|            <a id="btn-view-raw-file" class="overlay-btn" style="display: inline-block; text-decoration: none;" href="#" target="_blank">View Raw Document ↗</a>
-521|          </div>
-522|        </div>
-523|
-524|        <!-- Right Side of Inspector: Relations List -->
-525|        <div class="inspector-relations-panel">
-526|          <h4 class="relations-title">Semantic Relations (Bidirectional)</h4>
-527|          <div class="relations-list" id="node-relations">
-528|            <!-- Dynamically populated -->
-529|          </div>
-530|        </div>
-531|      </div>
-532|
-533|      <div id="inspector-empty" class="empty-state">
-534|        Select a node in the sidebar list or click one in the interactive knowledge graph to inspect its properties, tags, and cross-references.
-535|      </div>
-536|
-537|      <!-- Empirical Integration Banner -->
-538|      <div class="empirical-banner">
-539|        <div class="empirical-banner-header">
-540|          <span style="font-size: 16px;">🔬</span>
-541|          <h4 class="empirical-banner-title">Empirical Evidence Integration</h4>
-542|        </div>
-543|        <p class="empirical-banner-text">
-544|          Phase 3 establishes mathematically and experimentally validated links between abstract 
-545|          deprogramming modalities (e.g. Socratic Questioning, Emotion Code) and concrete clinical/historical 
-546|          studies (e.g. Michael's Workbook Case study, Morning Sickness study). Browse cases and biases to 
-547|          view empirical metrics and deconditioning outcome scores.
-548|        </p>
-549|      </div>
-550|    </div>
-551|  </div>
-552|</div>
-553|
-554|<script>
-555|// Data state
-556|let allNodes = [];
-557|let nodeMap = {};
-558|let selectedNodeId = null;
-559|let activeFilters = {
-560|  types: [],
-561|  tag: null
-562|};
-563|
-564|// Physics visualizer state
-565|const canvas = document.getElementById('graph-canvas');
-566|const ctx = canvas.getContext('2d');
-567|let graphNodes = [];
-568|let graphLinks = [];
-569|let dragNode = null;
-570|let hoverNode = null;
-571|let transform = { x: 0, y: 0, scale: 1.0 };
-572|let animationFrameId = null;
-573|
-574|// Colors by node type
-575|const typeColors = {
-576|  'manifesto': 'cyan',
-577|  'index': 'cyan',
-578|  'cognitive_bias': 'magenta',
-579|  'deprogramming_vector': 'gold',
-580|  'case_study': 'green',
-581|  'empirical_trial': 'green',
-582|  'audit': 'blue',
-583|  'research': 'purple'
-584|};
-585|
-586|const hexColors = {
-587|  'cyan': '#00ffff',
-588|  'magenta': '#ff0055',
-589|  'gold': '#ffaa00',
-590|  'green': '#00ff55',
-591|  'blue': '#3b82f6',
-592|  'purple': '#8b5cf6'
-593|};
-594|
-595|// Fetch data on load
-596|window.addEventListener('DOMContentLoaded', async () => {
-597|  try {
-598|    const resp = await fetch('okf/output/belief-deprogrammer-profile.json');
-599|    if (!resp.ok) throw new Error("Failed to load profile database");
-600|    const data = await resp.json();
-601|    allNodes = data.okf_docs || [];
-602|    
-603|    // Normalize data
-604|    allNodes.forEach(node => {
-605|      nodeMap[node.relative] = node;
-606|    });
-607|
-608|    // Populate filters
-609|    initFilters();
-610|    
-611|    // Initial display
-612|    filterAndDisplay();
-613|
-614|    // Start graph visualizer
-615|    initGraph();
-616|    
-617|    // Add canvas size change watcher
-618|    window.addEventListener('resize', resizeCanvas);
-619|    resizeCanvas();
-620|
-621|  } catch (err) {
-622|    console.error(err);
-623|    document.getElementById('results-container').innerHTML = 
-624|      `<div class="error" style="color:var(--magenta);padding:20px;text-align:center;">
-625|        Error loading discovery index. Make sure the database exists.
-626|       </div>`;
-627|  }
-628|});
-629|
-630|
-631|function initFilters() {
-632|  // Collect all unique types and tags
-633|  const types = new Set();
-634|  const tagCounts = {};
-635|  
-636|  allNodes.forEach(node => {
-637|    if (node.type) types.add(node.type);
-638|    if (node.tags && Array.isArray(node.tags)) {
-639|      node.tags.forEach(tag => {
-640|        tagCounts[tag] = (tagCounts[tag] || 0) + 1;
-641|      });
-642|    }
-643|  });
-644|
-645|  // Populate types checkboxes
-646|  const typeContainer = document.getElementById('type-filters-container');
-647|  typeContainer.innerHTML = '';
-648|  Array.from(types).sort().forEach(type => {
-649|    const colorName = typeColors[type] || 'blue';
-650|    const hex = hexColors[colorName] || '#fff';
-651|    
-652|    const label = document.createElement('label');
-653|    label.className = 'type-option';
-654|    label.innerHTML = `
-655|      <input type="checkbox" value="${type}">
-656|      <span class="color-dot" style="background-color: ${hex}; box-shadow: 0 0 6px ${hex}"></span>
-657|      <span>${type.replace('_', ' ')}</span>
-658|    `;
-659|    label.querySelector('input').addEventListener('change', (e) => {
-660|      if (e.target.checked) {
-661|        activeFilters.types.push(type);
-662|      } else {
-663|        activeFilters.types = activeFilters.types.filter(t => t !== type);
-664|      }
-665|      filterAndDisplay();
-666|    });
-667|    typeContainer.appendChild(label);
-668|  });
-669|
-670|  // Populate popular tags
-671|  const tagsContainer = document.getElementById('tags-container');
-672|  tagsContainer.innerHTML = '';
-673|  // Sort tags by frequency
-674|  const sortedTags = Object.keys(tagCounts).sort((a,b) => tagCounts[b] - tagCounts[a]);
-675|  sortedTags.slice(0, 15).forEach(tag => {
-676|    const pill = document.createElement('span');
-677|    pill.className = 'tag-pill';
-678|    pill.textContent = `${tag} (${tagCounts[tag]})`;
-679|    pill.addEventListener('click', () => {
-680|      if (activeFilters.tag === tag) {
-681|        activeFilters.tag = null;
-682|        pill.classList.remove('active');
-683|      } else {
-684|        // Clear active classes
-685|        document.querySelectorAll('.tag-pill').forEach(el => el.classList.remove('active'));
-686|        activeFilters.tag = tag;
-687|        pill.classList.add('active');
-688|      }
-689|      filterAndDisplay();
-690|    });
-691|    tagsContainer.appendChild(pill);
-692|  });
-693|
-694|  // Setup search text listener
-695|  document.getElementById('search-input').addEventListener('input', () => {
-696|    filterAndDisplay();
-697|  });
-698|
-699|  // Setup overlay controls
-700|  document.getElementById('btn-zoom-in').addEventListener('click', () => { transform.scale *= 1.2; });
-701|  document.getElementById('btn-zoom-out').addEventListener('click', () => { transform.scale /= 1.2; });
-702|  document.getElementById('btn-reset-layout').addEventListener('click', () => {
-703|    transform = { x: 0, y: 0, scale: 1.0 };
-704|    resetPositions();
-705|  });
-706|}
-707|
-708|// Perform search and filter, update list display
-709|function filterAndDisplay() {
-710|  const query = document.getElementById('search-input').value.toLowerCase().trim();
-711|  
-712|  const filtered = allNodes.filter(node => {
-713|    // Type filter
-714|    if (activeFilters.types.length > 0 && !activeFilters.types.includes(node.type)) {
-715|      return false;
-716|    }
-717|    // Tag filter
-718|    if (activeFilters.tag && (!node.tags || !node.tags.includes(activeFilters.tag))) {
-719|      return false;
-720|    }
-721|    // Text search
-722|    if (query) {
-723|      const matchTitle = node.title && node.title.toLowerCase().includes(query);
-724|      const matchDesc = node.description && node.description.toLowerCase().includes(query);
-725|      const matchTags = node.tags && node.tags.some(t => t.toLowerCase().includes(query));
-726|      const matchRel = node.relative && node.relative.toLowerCase().includes(query);
-727|      return matchTitle || matchDesc || matchTags || matchRel;
-728|    }
-729|    return true;
-730|  });
-731|
-732|  // Update results title count
-733|  document.getElementById('results-count-title').textContent = `Nodes (${filtered.length})`;
-734|
-735|  // Render list
-736|  const container = document.getElementById('results-container');
-737|  container.innerHTML = '';
-738|  
-739|  if (filtered.length === 0) {
-740|    container.innerHTML = `<div style="color:var(--text-muted);font-style:italic;padding:12px;text-align:center;">No matching nodes found.</div>`;
-741|    return;
-742|  }
-743|
-744|  filtered.forEach(node => {
-745|    const item = document.createElement('div');
-746|    item.className = 'result-item';
-747|    if (selectedNodeId === node.relative) {
-748|      item.classList.add('selected');
-749|    }
-750|    
-751|    const colorName = typeColors[node.type] || 'blue';
-752|    const hex = hexColors[colorName] || '#fff';
-753|    
-754|    item.innerHTML = `
-755|      <div class="result-item-title">${node.title}</div>
-756|
-757|    `;
-758|    
-759|    item.addEventListener('click', () => {
-760|      selectNode(node.relative);
-761|    });
-762|    
-763|    container.appendChild(item);
-764|  });
-765|
-766|  // Highlight filtered nodes in graph
-767|  updateGraphSelection(filtered);
-768|}
-769|
-770|// Select a node and open the inspector
-771|function selectNode(relativeId) {
-772|  selectedNodeId = relativeId;
-773|  
-774|  // Highlight in results list
-775|  document.querySelectorAll('.result-item').forEach(el => {
-776|    el.classList.remove('selected');
-777|  });
-778|  
-779|  // Find current result item in UI and add select class
-780|  const items = document.querySelectorAll('.result-item');
-781|  allNodes.forEach((node, idx) => {
-782|    if (node.relative === relativeId) {
-783|      // Find list elements
-784|      const listItems = Array.from(document.querySelectorAll('.result-item'));
-785|      const matchItem = listItems.find(el => el.querySelector('.result-item-title').textContent === node.title);
-786|      if (matchItem) matchItem.classList.add('selected');
-787|    }
-788|  });
-789|
-790|  const node = nodeMap[relativeId];
-791|  if (!node) return;
-792|
-793|  // Render Inspector
-794|  document.getElementById('inspector-empty').style.display = 'none';
-795|  const content = document.getElementById('inspector-content');
-796|  content.style.display = 'grid';
-797|
-798|  document.getElementById('node-title').textContent = node.title;
-799|  document.getElementById('node-badge').textContent = node.type.replace('_', ' ');
-800|  
-801|  const colorName = typeColors[node.type] || 'blue';
-802|  const hex = hexColors[colorName] || '#fff';
-803|  const badge = document.getElementById('node-badge');
-804|  badge.style.backgroundColor = `${hex}15`;
-805|  badge.style.border = `1px solid ${hex}40`;
-806|  badge.style.color = hex;
-807|
-808|  document.getElementById('node-path').textContent = node.relative;
-809|  document.getElementById('node-description').textContent = node.description || 'No description provided.';
-810|  
-811|  // Setup Raw file link
-812|  // Point to the local path relative to workspace or direct file schema
-813|  document.getElementById('btn-view-raw-file').href = `file://${node.path}`;
-814|
-815|  // Tags
-816|  const tagsContainer = document.getElementById('node-tags');
-817|  tagsContainer.innerHTML = '';
-818|  if (node.tags && node.tags.length > 0) {
-819|    node.tags.forEach(t => {
-820|      const tagEl = document.createElement('span');
-821|      tagEl.className = 'inspector-tag';
-822|      tagEl.textContent = t;
-823|      tagsContainer.appendChild(tagEl);
-824|    });
-825|  } else {
-826|    tagsContainer.innerHTML = `<span style="font-size:11px;color:var(--text-muted);font-style:italic;">None</span>`;
-827|  }
-828|
-829|  // Relations
-830|  const relationsContainer = document.getElementById('node-relations');
-831|  relationsContainer.innerHTML = '';
-832|  if (node.relations && node.relations.length > 0) {
-833|    node.relations.forEach(relId => {
-834|      const relNode = nodeMap[relId];
-835|      if (relNode) {
-836|        const link = document.createElement('div');
-837|        link.className = 'relation-link';
-838|        const relColor = typeColors[relNode.type] || 'blue';
-839|        const relHex = hexColors[relColor] || '#fff';
-840|        
-841|        link.innerHTML = `
-842|          <span class="relation-name">${relNode.title}</span>
-843|          <span class="relation-type" style="color: ${relHex}">${relNode.type.replace('_', ' ')}</span>
-844|        `;
-845|        link.addEventListener('click', () => {
-846|          selectNode(relId);
-847|          centerOnNode(relId);
-848|        });
-849|        relationsContainer.appendChild(link);
-850|      }
-851|    });
-852|  } else {
-853|    relationsContainer.innerHTML = `<div style="font-size:12px;color:var(--text-muted);font-style:italic;">No direct connections.</div>`;
-854|  }
-855|
-856|  // Highlight node in visual graph
-857|  highlightNodeInGraph(relativeId);
-858|}
-859|
-860|// -------------------------------------------------------------
-861|// Interactive 2D Network Physics Simulation (Canvas)
-862|// -------------------------------------------------------------
-863|function resizeCanvas() {
-864|  const rect = canvas.getBoundingClientRect();
-865|  canvas.width = rect.width;
-866|  canvas.height = rect.height;
-867|}
-868|
-869|function initGraph() {
-870|  // Populate graph structures from allNodes data
-871|  graphNodes = allNodes.map(node => ({
-872|    id: node.relative,
-873|    title: node.title,
-874|    type: node.type,
-875|    x: (Math.random() - 0.5) * 300,
-876|    y: (Math.random() - 0.5) * 300,
-877|    vx: 0,
-878|    vy: 0,
-879|    radius: node.type === 'index' || node.type === 'manifesto' ? 14 : 10,
-880|    highlighted: false,
-881|    selected: false,
-882|
-883|  }));
-884|
-885|  // Build links
-886|  graphLinks = [];
-887|  allNodes.forEach(node => {
-888|    if (node.relations) {
-889|      node.relations.forEach(targetId => {
-890|        // Avoid duplicate links in undirected graph representation
-891|        const linkExists = graphLinks.some(l => 
-892|          (l.source === node.relative && l.target === targetId) ||
-893|          (l.source === targetId && l.target === node.relative)
-894|        );
-895|        if (!linkExists && nodeMap[targetId]) {
-896|          graphLinks.push({
-897|            source: node.relative,
-898|            target: targetId
-899|          });
-900|        }
-901|      });
-902|    }
-903|  });
-904|
-905|  // Setup interactions
-906|  canvas.addEventListener('mousedown', onMouseDown);
-907|  canvas.addEventListener('mousemove', onMouseMove);
-908|  canvas.addEventListener('mouseup', onMouseUp);
-909|  canvas.addEventListener('wheel', onWheel);
-910|
-911|  // Start physics loop
-912|  if (animationFrameId) cancelAnimationFrame(animationFrameId);
-913|  physicsLoop();
-914|}
-915|
-916|function resetPositions() {
-917|  graphNodes.forEach(n => {
-918|    n.x = (Math.random() - 0.5) * 200;
-919|    n.y = (Math.random() - 0.5) * 200;
-920|    n.vx = 0;
-921|    n.vy = 0;
-922|  });
-923|}
-924|
-925|function centerOnNode(nodeId) {
-926|  const node = graphNodes.find(n => n.id === nodeId);
-927|  if (node) {
-928|    transform.x = -node.x * transform.scale;
-929|    transform.y = -node.y * transform.scale;
-930|  }
-931|}
-932|
-933|function updateGraphSelection(filteredNodes) {
-934|  const ids = new Set(filteredNodes.map(n => n.relative));
-935|  graphNodes.forEach(n => {
-936|    n.visible = ids.has(n.id);
-937|  });
-938|}
-939|
-940|function highlightNodeInGraph(nodeId) {
-941|  graphNodes.forEach(n => {
-942|    n.selected = n.id === nodeId;
-943|    // Highlight neighbours as well
-944|    if (n.id === nodeId) {
-945|      n.highlighted = true;
-946|    } else {
-947|      const isNeighbor = allNodes.find(d => d.relative === nodeId)?.relations?.includes(n.id) ||
-948|                         allNodes.find(d => d.relative === n.id)?.relations?.includes(nodeId);
-949|      n.highlighted = !!isNeighbor;
-950|    }
-951|  });
-952|}
-953|
-954|// Simple force-directed update step
-955|function updatePhysics() {
-956|  const kCenter = 0.01;      // Force pulling nodes to center
-957|  const kRepulsion = 1200;    // Repulsion constant between nodes
-958|  const kSpring = 0.06;       // Link spring constant
-959|  const dSpring = 90;        // Desired spring length
-960|  const damping = 0.85;       // Velocity friction
-961|
-962|  // Repulsion between visible node pairs (Coulomb's Law)
-963|  for (let i = 0; i < graphNodes.length; i++) {
-964|    const n1 = graphNodes[i];
-965|    if (!n1.visible) continue;
-966|    
-967|    // Pull to center slightly
-968|    n1.vx -= n1.x * kCenter;
-969|    n1.vy -= n1.y * kCenter;
-970|
-971|    for (let j = i + 1; j < graphNodes.length; j++) {
-972|      const n2 = graphNodes[j];
-973|      if (!n2.visible) continue;
-974|
-975|      const dx = n2.x - n1.x;
-976|      const dy = n2.y - n1.y;
-977|      const distSq = dx * dx + dy * dy + 0.1;
-978|      const dist = Math.sqrt(distSq);
-979|
-980|      if (dist < 400) {
-981|        // Push force
-982|        const force = kRepulsion / distSq;
-983|        const fx = (dx / dist) * force;
-984|        const fy = (dy / dist) * force;
-985|
-986|        n1.vx -= fx;
-987|        n1.vy -= fy;
-988|        n2.vx += fx;
-989|        n2.vy += fy;
-990|      }
-991|    }
-992|  }
-993|
-994|  // Link spring forces (Hooke's Law)
-995|  graphLinks.forEach(link => {
-996|    const sNode = graphNodes.find(n => n.id === link.source);
-997|    const tNode = graphNodes.find(n => n.id === link.target);
-998|
-999|    if (sNode && tNode && sNode.visible && tNode.visible) {
-1000|      const dx = tNode.x - sNode.x;
-1001|      const dy = tNode.y - sNode.y;
-1002|      const dist = Math.sqrt(dx * dx + dy * dy) + 0.1;
-1003|      
-1004|      const force = (dist - dSpring) * kSpring;
-1005|      const fx = (dx / dist) * force;
-1006|      const fy = (dy / dist) * force;
-1007|
-1008|
-1009|      sNode.vy += fy;
-1010|      tNode.vx -= fx;
-1011|      tNode.vy -= fy;
-1012|    }
-1013|  });
-1014|
-1015|  // Apply velocity & limits
-1016|  graphNodes.forEach(n => {
-1017|    if (!n.visible) return;
-1018|    if (n === dragNode) {
-1019|      n.vx = 0;
-1020|      n.vy = 0;
-1021|      return;
-1022|    }
-1023|    
-1024|    n.x += n.vx;
-1025|    n.y += n.vy;
-1026|    n.vx *= damping;
-1027|    n.vy *= damping;
-1028|  });
-1029|}
-1030|
-1031|function drawGraph() {
-1032|  ctx.clearRect(0, 0, canvas.width, canvas.height);
-1033|  ctx.save();
-1034|  
-1035|  // Center coordinates and apply transformations
-1036|  ctx.translate(canvas.width / 2 + transform.x, canvas.height / 2 + transform.y);
-1037|  ctx.scale(transform.scale, transform.scale);
-1038|
-1039|  // Draw links
-1040|  ctx.lineWidth = 1;
-1041|  graphLinks.forEach(link => {
-1042|    const s = graphNodes.find(n => n.id === link.source);
-1043|    const t = graphNodes.find(n => n.id === link.target);
-1044|    if (s && t && s.visible && t.visible) {
-1045|      const isHighlightedLink = (s.selected && t.highlighted) || (t.selected && s.highlighted);
-1046|      ctx.strokeStyle = isHighlightedLink ? 'rgba(0, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.08)';
-1047|      ctx.lineWidth = isHighlightedLink ? 2 : 1;
-1048|      ctx.beginPath();
-1049|      ctx.moveTo(s.x, s.y);
-1050|      ctx.lineTo(t.x, t.y);
-1051|      ctx.stroke();
-1052|    }
-1053|  });
-1054|
-1055|  // Draw nodes
-1056|  graphNodes.forEach(n => {
-1057|    if (!n.visible) return;
-1058|
-1059|    const colorName = typeColors[n.type] || 'blue';
-1060|    const hex = hexColors[colorName] || '#fff';
-1061|
-1062|    ctx.beginPath();
-1063|    ctx.arc(n.x, n.y, n.radius, 0, 2 * Math.PI);
-1064|    
-1065|    // Filled styling
-1066|    ctx.fillStyle = hex;
-1067|    ctx.shadowBlur = 0;
-1068|    
-1069|    if (n.selected) {
-1070|      ctx.strokeStyle = '#ffffff';
-1071|      ctx.lineWidth = 3;
-1072|      ctx.stroke();
-1073|      ctx.shadowColor = hex;
-1074|      ctx.shadowBlur = 12;
-1075|    } else if (n.highlighted) {
-1076|      ctx.strokeStyle = 'rgba(255,255,255,0.7)';
-1077|      ctx.lineWidth = 2;
-1078|      ctx.stroke();
-1079|      ctx.shadowColor = hex;
-1080|      ctx.shadowBlur = 6;
-1081|    }
-1082|    
-1083|    ctx.fill();
-1084|    ctx.shadowBlur = 0; // Reset shadow
-1085|
-1086|    // Text labels for selected or hovered nodes
-1087|    const isHovered = (hoverNode === n);
-1088|    if (n.selected || isHovered || transform.scale > 0.8) {
-1089|      ctx.fillStyle = n.selected ? '#ffffff' : 'rgba(255,255,255,0.85)';
-1090|      ctx.font = n.selected ? 'bold 11px Outfit' : '10px Outfit';
-1091|      ctx.textAlign = 'center';
-1092|      ctx.fillText(n.title, n.x, n.y - n.radius - 6);
-1093|    }
-1094|  });
-1095|
-1096|  ctx.restore();
-1097|}
-1098|
-1099|function physicsLoop() {
-1100|  updatePhysics();
-1101|  drawGraph();
-1102|  animationFrameId = requestAnimationFrame(physicsLoop);
-1103|}
-1104|
-1105|// Canvas interactions
-1106|let isDraggingViewport = false;
-1107|let startMousePos = { x: 0, y: 0 };
-1108|let startTransform = { x: 0, y: 0 };
-1109|
-1110|function getLocalMouse(e) {
-1111|  const rect = canvas.getBoundingClientRect();
-1112|  const rawX = e.clientX - rect.left - rect.width / 2;
-1113|  const rawY = e.clientY - rect.top - rect.height / 2;
-1114|  
-1115|  // Back-project transform
-1116|  return {
-1117|    x: (rawX - transform.x) / transform.scale,
-1118|    y: (rawY - transform.y) / transform.scale
-1119|  };
-1120|}
-1121|
-1122|function onMouseDown(e) {
-1123|  const mouse = getLocalMouse(e);
-1124|  
-1125|  // Check if click hits a node
-1126|  let hit = null;
-1127|  for (let i = graphNodes.length - 1; i >= 0; i--) {
-1128|    const n = graphNodes[i];
-1129|    if (!n.visible) continue;
-1130|    const dx = n.x - mouse.x;
-1131|    const dy = n.y - mouse.y;
-1132|    if (dx*dx + dy*dy <= (n.radius + 6)*(n.radius + 6)) {
-1133|      hit = n;
-1134|
-1135|    }
-1136|  }
-1137|
-1138|  if (hit) {
-1139|    dragNode = hit;
-1140|  } else {
-1141|    isDraggingViewport = true;
-1142|    startMousePos = { x: e.clientX, y: e.clientY };
-1143|    startTransform = { ...transform };
-1144|  }
-1145|}
-1146|
-1147|function onMouseMove(e) {
-1148|  const mouse = getLocalMouse(e);
-1149|  
-1150|  if (dragNode) {
-1151|    dragNode.x = mouse.x;
-1152|    dragNode.y = mouse.y;
-1153|  } else if (isDraggingViewport) {
-1154|    const dx = e.clientX - startMousePos.x;
-1155|    const dy = e.clientY - startMousePos.y;
-1156|    transform.x = startTransform.x + dx;
-1157|    transform.y = startTransform.y + dy;
-1158|  } else {
-1159|    // Check hover
-1160|    let hit = null;
-1161|    for (let i = graphNodes.length - 1; i >= 0; i--) {
-1162|      const n = graphNodes[i];
-1163|      if (!n.visible) continue;
-1164|      const dx = n.x - mouse.x;
-1165|      const dy = n.y - mouse.y;
-1166|      if (dx*dx + dy*dy <= (n.radius + 6)*(n.radius + 6)) {
-1167|        hit = n;
-1168|        break;
-1169|      }
-1170|    }
-1171|    hoverNode = hit;
-1172|  }
-1173|}
-1174|
-1175|function onMouseUp(e) {
-1176|  if (dragNode) {
-1177|    // If drag didn't move far, treat it as a click / selection
-1178|    selectNode(dragNode.id);
-1179|    dragNode = null;
-1180|  }
-1181|  isDraggingViewport = false;
-1182|}
-1183|
-1184|function onWheel(e) {
-1185|  e.preventDefault();
-1186|  const zoomFactor = 1.1;
-1187|  if (e.deltaY < 0) {
-1188|    transform.scale *= zoomFactor;
-1189|  } else {
-1190|    transform.scale /= zoomFactor;
-1191|  }
-1192|}
-1193|</script>
-1194|</body>
-1195|</html>
-1196|
+<body>
+
+<nav id="global-nav">
+  <a href="index.html">Generate Workbook</a>
+  <a href="philosophy.html">Philosophy</a>
+  <a href="research.html">Research Guide</a>
+  <a href="sources.html">Sources & Credits</a>
+  <a href="discover.html" class="active">Discover</a>
+</nav>
+
+<div class="dashboard">
+  <!-- Left Side: Controls & Results -->
+  <div class="sidebar">
+    <!-- Search Card -->
+    <div class="glass-card">
+      <h3 class="panel-title">🔎 Search & Filter</h3>
+      <div class="search-box">
+        <input type="text" id="search-input" class="search-input" placeholder="Type query (e.g. backfire, trauma)...">
+      </div>
+      
+      <div style="margin-top: 16px;">
+        <div class="filter-group">
+          <label>Filter by Type</label>
+          <div class="type-filters" id="type-filters-container">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Popular Tags</label>
+          <div class="tag-container" id="tags-container">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results List Card -->
+    <div class="glass-card" style="flex: 1; display: flex; flex-direction: column;">
+      <h3 class="panel-title" id="results-count-title">Nodes (0)</h3>
+      <div class="results-list-container" id="results-container">
+        <!-- Loaded dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Side: Visualization & Details -->
+  <div class="main-panel">
+    <!-- Network Graph Visualizer -->
+    <div class="glass-card graph-container">
+      <h3 class="panel-title" style="position: absolute; top: 16px; left: 20px; z-index: 10; pointer-events: none;">🕸️ Relational Knowledge Graph</h3>
+      <canvas id="graph-canvas"></canvas>
+      <div class="graph-controls-overlay">
+        <button class="overlay-btn" id="btn-zoom-in">Zoom In</button>
+        <button class="overlay-btn" id="btn-zoom-out">Zoom Out</button>
+        <button class="overlay-btn" id="btn-reset-layout">Reset Layout</button>
+      </div>
+    </div>
+
+    <!-- Inspector / Detailed view -->
+    <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+      <div id="inspector-content" class="inspector" style="display: none;">
+        <!-- Left Side of Inspector: Node Detail -->
+        <div class="inspector-details">
+          <div class="inspector-title-row">
+
+            <span class="badge" id="node-badge" style="margin-top: 4px;">cognitive_bias</span>
+          </div>
+          <div id="node-meta-row" style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 4px;">
+            Path: <span id="node-path">...</span>
+          </div>
+          <p class="inspector-description" id="node-description">
+            The mental discomfort experienced by someone who holds two or more contradictory beliefs, ideas, or values.
+          </p>
+          <div>
+            <label style="display: block; font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">Tags</label>
+            <div class="inspector-tags" id="node-tags">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+          <div style="margin-top: 8px;">
+            <a id="btn-view-raw-file" class="overlay-btn" style="display: inline-block; text-decoration: none;" href="#" target="_blank">View Raw Document ↗</a>
+          </div>
+        </div>
+
+        <!-- Right Side of Inspector: Relations List -->
+        <div class="inspector-relations-panel">
+          <h4 class="relations-title">Semantic Relations (Bidirectional)</h4>
+          <div class="relations-list" id="node-relations">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <div id="inspector-empty" class="empty-state">
+        Select a node in the sidebar list or click one in the interactive knowledge graph to inspect its properties, tags, and cross-references.
+      </div>
+
+      <!-- Empirical Integration Banner -->
+      <div class="empirical-banner">
+        <div class="empirical-banner-header">
+          <span style="font-size: 16px;">🔬</span>
+          <h4 class="empirical-banner-title">Empirical Evidence Integration</h4>
+        </div>
+        <p class="empirical-banner-text">
+          Phase 3 establishes mathematically and experimentally validated links between abstract 
+          deprogramming modalities (e.g. Socratic Questioning, Emotion Code) and concrete clinical/historical 
+          studies (e.g. Michael's Workbook Case study, Morning Sickness study). Browse cases and biases to 
+          view empirical metrics and deconditioning outcome scores.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Data state
+let allNodes = [];
+let nodeMap = {};
+let selectedNodeId = null;
+let activeFilters = {
+  types: [],
+  tag: null
+};
+
+// Physics visualizer state
+const canvas = document.getElementById('graph-canvas');
+const ctx = canvas.getContext('2d');
+let graphNodes = [];
+let graphLinks = [];
+let dragNode = null;
+let hoverNode = null;
+let transform = { x: 0, y: 0, scale: 1.0 };
+let animationFrameId = null;
+
+// Colors by node type
+const typeColors = {
+  'manifesto': 'cyan',
+  'index': 'cyan',
+  'cognitive_bias': 'magenta',
+  'deprogramming_vector': 'gold',
+  'case_study': 'green',
+  'empirical_trial': 'green',
+  'audit': 'blue',
+  'research': 'purple'
+};
+
+const hexColors = {
+  'cyan': '#00ffff',
+  'magenta': '#ff0055',
+  'gold': '#ffaa00',
+  'green': '#00ff55',
+  'blue': '#3b82f6',
+  'purple': '#8b5cf6'
+};
+
+// Fetch data on load
+window.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const resp = await fetch('okf/output/belief-deprogrammer-profile.json');
+    if (!resp.ok) throw new Error("Failed to load profile database");
+    const data = await resp.json();
+    allNodes = data.okf_docs || [];
+    
+    // Normalize data
+    allNodes.forEach(node => {
+      nodeMap[node.relative] = node;
+    });
+
+    // Populate filters
+    initFilters();
+    
+    // Initial display
+    filterAndDisplay();
+
+    // Start graph visualizer
+    initGraph();
+    
+    // Add canvas size change watcher
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+  } catch (err) {
+    console.error(err);
+    document.getElementById('results-container').innerHTML = 
+      `<div class="error" style="color:var(--magenta);padding:20px;text-align:center;">
+        Error loading discovery index. Make sure the database exists.
+       </div>`;
+  }
+});
+
+
+function initFilters() {
+  // Collect all unique types and tags
+  const types = new Set();
+  const tagCounts = {};
+  
+  allNodes.forEach(node => {
+    if (node.type) types.add(node.type);
+    if (node.tags && Array.isArray(node.tags)) {
+      node.tags.forEach(tag => {
+        tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+      });
+    }
+  });
+
+  // Populate types checkboxes
+  const typeContainer = document.getElementById('type-filters-container');
+  typeContainer.innerHTML = '';
+  Array.from(types).sort().forEach(type => {
+    const colorName = typeColors[type] || 'blue';
+    const hex = hexColors[colorName] || '#fff';
+    
+    const label = document.createElement('label');
+    label.className = 'type-option';
+    label.innerHTML = `
+      <input type="checkbox" value="${type}">
+      <span class="color-dot" style="background-color: ${hex}; box-shadow: 0 0 6px ${hex}"></span>
+      <span>${type.replace('_', ' ')}</span>
+    `;
+    label.querySelector('input').addEventListener('change', (e) => {
+      if (e.target.checked) {
+        activeFilters.types.push(type);
+      } else {
+        activeFilters.types = activeFilters.types.filter(t => t !== type);
+      }
+      filterAndDisplay();
+    });
+    typeContainer.appendChild(label);
+  });
+
+  // Populate popular tags
+  const tagsContainer = document.getElementById('tags-container');
+  tagsContainer.innerHTML = '';
+  // Sort tags by frequency
+  const sortedTags = Object.keys(tagCounts).sort((a,b) => tagCounts[b] - tagCounts[a]);
+  sortedTags.slice(0, 15).forEach(tag => {
+    const pill = document.createElement('span');
+    pill.className = 'tag-pill';
+    pill.textContent = `${tag} (${tagCounts[tag]})`;
+    pill.addEventListener('click', () => {
+      if (activeFilters.tag === tag) {
+        activeFilters.tag = null;
+        pill.classList.remove('active');
+      } else {
+        // Clear active classes
+        document.querySelectorAll('.tag-pill').forEach(el => el.classList.remove('active'));
+        activeFilters.tag = tag;
+        pill.classList.add('active');
+      }
+      filterAndDisplay();
+    });
+    tagsContainer.appendChild(pill);
+  });
+
+  // Setup search text listener
+  document.getElementById('search-input').addEventListener('input', () => {
+    filterAndDisplay();
+  });
+
+  // Setup overlay controls
+  document.getElementById('btn-zoom-in').addEventListener('click', () => { transform.scale *= 1.2; });
+  document.getElementById('btn-zoom-out').addEventListener('click', () => { transform.scale /= 1.2; });
+  document.getElementById('btn-reset-layout').addEventListener('click', () => {
+    transform = { x: 0, y: 0, scale: 1.0 };
+    resetPositions();
+  });
+}
+
+// Perform search and filter, update list display
+function filterAndDisplay() {
+  const query = document.getElementById('search-input').value.toLowerCase().trim();
+  
+  const filtered = allNodes.filter(node => {
+    // Type filter
+    if (activeFilters.types.length > 0 && !activeFilters.types.includes(node.type)) {
+      return false;
+    }
+    // Tag filter
+    if (activeFilters.tag && (!node.tags || !node.tags.includes(activeFilters.tag))) {
+      return false;
+    }
+    // Text search
+    if (query) {
+      const matchTitle = node.title && node.title.toLowerCase().includes(query);
+      const matchDesc = node.description && node.description.toLowerCase().includes(query);
+      const matchTags = node.tags && node.tags.some(t => t.toLowerCase().includes(query));
+      const matchRel = node.relative && node.relative.toLowerCase().includes(query);
+      return matchTitle || matchDesc || matchTags || matchRel;
+    }
+    return true;
+  });
+
+  // Update results title count
+  document.getElementById('results-count-title').textContent = `Nodes (${filtered.length})`;
+
+  // Render list
+  const container = document.getElementById('results-container');
+  container.innerHTML = '';
+  
+  if (filtered.length === 0) {
+    container.innerHTML = `<div style="color:var(--text-muted);font-style:italic;padding:12px;text-align:center;">No matching nodes found.</div>`;
+    return;
+  }
+
+  filtered.forEach(node => {
+    const item = document.createElement('div');
+    item.className = 'result-item';
+    if (selectedNodeId === node.relative) {
+      item.classList.add('selected');
+    }
+    
+    const colorName = typeColors[node.type] || 'blue';
+    const hex = hexColors[colorName] || '#fff';
+    
+    item.innerHTML = `
+      <div class="result-item-title">${node.title}</div>
+
+    `;
+    
+    item.addEventListener('click', () => {
+      selectNode(node.relative);
+    });
+    
+    container.appendChild(item);
+  });
+
+  // Highlight filtered nodes in graph
+  updateGraphSelection(filtered);
+}
+
+// Select a node and open the inspector
+function selectNode(relativeId) {
+  selectedNodeId = relativeId;
+  
+  // Highlight in results list
+  document.querySelectorAll('.result-item').forEach(el => {
+    el.classList.remove('selected');
+  });
+  
+  // Find current result item in UI and add select class
+  const items = document.querySelectorAll('.result-item');
+  allNodes.forEach((node, idx) => {
+    if (node.relative === relativeId) {
+      // Find list elements
+      const listItems = Array.from(document.querySelectorAll('.result-item'));
+      const matchItem = listItems.find(el => el.querySelector('.result-item-title').textContent === node.title);
+      if (matchItem) matchItem.classList.add('selected');
+    }
+  });
+
+  const node = nodeMap[relativeId];
+  if (!node) return;
+
+  // Render Inspector
+  document.getElementById('inspector-empty').style.display = 'none';
+  const content = document.getElementById('inspector-content');
+  content.style.display = 'grid';
+
+  document.getElementById('node-title').textContent = node.title;
+  document.getElementById('node-badge').textContent = node.type.replace('_', ' ');
+  
+  const colorName = typeColors[node.type] || 'blue';
+  const hex = hexColors[colorName] || '#fff';
+  const badge = document.getElementById('node-badge');
+  badge.style.backgroundColor = `${hex}15`;
+  badge.style.border = `1px solid ${hex}40`;
+  badge.style.color = hex;
+
+  document.getElementById('node-path').textContent = node.relative;
+  document.getElementById('node-description').textContent = node.description || 'No description provided.';
+  
+  // Setup Raw file link
+  // Point to the local path relative to workspace or direct file schema
+  document.getElementById('btn-view-raw-file').href = `file://${node.path}`;
+
+  // Tags
+  const tagsContainer = document.getElementById('node-tags');
+  tagsContainer.innerHTML = '';
+  if (node.tags && node.tags.length > 0) {
+    node.tags.forEach(t => {
+      const tagEl = document.createElement('span');
+      tagEl.className = 'inspector-tag';
+      tagEl.textContent = t;
+      tagsContainer.appendChild(tagEl);
+    });
+  } else {
+    tagsContainer.innerHTML = `<span style="font-size:11px;color:var(--text-muted);font-style:italic;">None</span>`;
+  }
+
+  // Relations
+  const relationsContainer = document.getElementById('node-relations');
+  relationsContainer.innerHTML = '';
+  if (node.relations && node.relations.length > 0) {
+    node.relations.forEach(relId => {
+      const relNode = nodeMap[relId];
+      if (relNode) {
+        const link = document.createElement('div');
+        link.className = 'relation-link';
+        const relColor = typeColors[relNode.type] || 'blue';
+        const relHex = hexColors[relColor] || '#fff';
+        
+        link.innerHTML = `
+          <span class="relation-name">${relNode.title}</span>
+          <span class="relation-type" style="color: ${relHex}">${relNode.type.replace('_', ' ')}</span>
+        `;
+        link.addEventListener('click', () => {
+          selectNode(relId);
+          centerOnNode(relId);
+        });
+        relationsContainer.appendChild(link);
+      }
+    });
+  } else {
+    relationsContainer.innerHTML = `<div style="font-size:12px;color:var(--text-muted);font-style:italic;">No direct connections.</div>`;
+  }
+
+  // Highlight node in visual graph
+  highlightNodeInGraph(relativeId);
+}
+
+// -------------------------------------------------------------
+// Interactive 2D Network Physics Simulation (Canvas)
+// -------------------------------------------------------------
+function resizeCanvas() {
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width;
+  canvas.height = rect.height;
+}
+
+function initGraph() {
+  // Populate graph structures from allNodes data
+  graphNodes = allNodes.map(node => ({
+    id: node.relative,
+    title: node.title,
+    type: node.type,
+    x: (Math.random() - 0.5) * 300,
+    y: (Math.random() - 0.5) * 300,
+    vx: 0,
+    vy: 0,
+    radius: node.type === 'index' || node.type === 'manifesto' ? 14 : 10,
+    highlighted: false,
+    selected: false,
+
+  }));
+
+  // Build links
+  graphLinks = [];
+  allNodes.forEach(node => {
+    if (node.relations) {
+      node.relations.forEach(targetId => {
+        // Avoid duplicate links in undirected graph representation
+        const linkExists = graphLinks.some(l => 
+          (l.source === node.relative && l.target === targetId) ||
+          (l.source === targetId && l.target === node.relative)
+        );
+        if (!linkExists && nodeMap[targetId]) {
+          graphLinks.push({
+            source: node.relative,
+            target: targetId
+          });
+        }
+      });
+    }
+  });
+
+  // Setup interactions
+  canvas.addEventListener('mousedown', onMouseDown);
+  canvas.addEventListener('mousemove', onMouseMove);
+  canvas.addEventListener('mouseup', onMouseUp);
+  canvas.addEventListener('wheel', onWheel);
+
+  // Start physics loop
+  if (animationFrameId) cancelAnimationFrame(animationFrameId);
+  physicsLoop();
+}
+
+function resetPositions() {
+  graphNodes.forEach(n => {
+    n.x = (Math.random() - 0.5) * 200;
+    n.y = (Math.random() - 0.5) * 200;
+    n.vx = 0;
+    n.vy = 0;
+  });
+}
+
+function centerOnNode(nodeId) {
+  const node = graphNodes.find(n => n.id === nodeId);
+  if (node) {
+    transform.x = -node.x * transform.scale;
+    transform.y = -node.y * transform.scale;
+  }
+}
+
+function updateGraphSelection(filteredNodes) {
+  const ids = new Set(filteredNodes.map(n => n.relative));
+  graphNodes.forEach(n => {
+    n.visible = ids.has(n.id);
+  });
+}
+
+function highlightNodeInGraph(nodeId) {
+  graphNodes.forEach(n => {
+    n.selected = n.id === nodeId;
+    // Highlight neighbours as well
+    if (n.id === nodeId) {
+      n.highlighted = true;
+    } else {
+      const isNeighbor = allNodes.find(d => d.relative === nodeId)?.relations?.includes(n.id) ||
+                         allNodes.find(d => d.relative === n.id)?.relations?.includes(nodeId);
+      n.highlighted = !!isNeighbor;
+    }
+  });
+}
+
+// Simple force-directed update step
+function updatePhysics() {
+  const kCenter = 0.01;      // Force pulling nodes to center
+  const kRepulsion = 1200;    // Repulsion constant between nodes
+  const kSpring = 0.06;       // Link spring constant
+  const dSpring = 90;        // Desired spring length
+  const damping = 0.85;       // Velocity friction
+
+  // Repulsion between visible node pairs (Coulomb's Law)
+  for (let i = 0; i < graphNodes.length; i++) {
+    const n1 = graphNodes[i];
+    if (!n1.visible) continue;
+    
+    // Pull to center slightly
+    n1.vx -= n1.x * kCenter;
+    n1.vy -= n1.y * kCenter;
+
+    for (let j = i + 1; j < graphNodes.length; j++) {
+      const n2 = graphNodes[j];
+      if (!n2.visible) continue;
+
+      const dx = n2.x - n1.x;
+      const dy = n2.y - n1.y;
+      const distSq = dx * dx + dy * dy + 0.1;
+      const dist = Math.sqrt(distSq);
+
+      if (dist < 400) {
+        // Push force
+        const force = kRepulsion / distSq;
+        const fx = (dx / dist) * force;
+        const fy = (dy / dist) * force;
+
+        n1.vx -= fx;
+        n1.vy -= fy;
+        n2.vx += fx;
+        n2.vy += fy;
+      }
+    }
+  }
+
+  // Link spring forces (Hooke's Law)
+  graphLinks.forEach(link => {
+    const sNode = graphNodes.find(n => n.id === link.source);
+    const tNode = graphNodes.find(n => n.id === link.target);
+
+    if (sNode && tNode && sNode.visible && tNode.visible) {
+      const dx = tNode.x - sNode.x;
+      const dy = tNode.y - sNode.y;
+      const dist = Math.sqrt(dx * dx + dy * dy) + 0.1;
+      
+      const force = (dist - dSpring) * kSpring;
+      const fx = (dx / dist) * force;
+      const fy = (dy / dist) * force;
+
+
+      sNode.vy += fy;
+      tNode.vx -= fx;
+      tNode.vy -= fy;
+    }
+  });
+
+  // Apply velocity & limits
+  graphNodes.forEach(n => {
+    if (!n.visible) return;
+    if (n === dragNode) {
+      n.vx = 0;
+      n.vy = 0;
+      return;
+    }
+    
+    n.x += n.vx;
+    n.y += n.vy;
+    n.vx *= damping;
+    n.vy *= damping;
+  });
+}
+
+function drawGraph() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.save();
+  
+  // Center coordinates and apply transformations
+  ctx.translate(canvas.width / 2 + transform.x, canvas.height / 2 + transform.y);
+  ctx.scale(transform.scale, transform.scale);
+
+  // Draw links
+  ctx.lineWidth = 1;
+  graphLinks.forEach(link => {
+    const s = graphNodes.find(n => n.id === link.source);
+    const t = graphNodes.find(n => n.id === link.target);
+    if (s && t && s.visible && t.visible) {
+      const isHighlightedLink = (s.selected && t.highlighted) || (t.selected && s.highlighted);
+      ctx.strokeStyle = isHighlightedLink ? 'rgba(0, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.08)';
+      ctx.lineWidth = isHighlightedLink ? 2 : 1;
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y);
+      ctx.lineTo(t.x, t.y);
+      ctx.stroke();
+    }
+  });
+
+  // Draw nodes
+  graphNodes.forEach(n => {
+    if (!n.visible) return;
+
+    const colorName = typeColors[n.type] || 'blue';
+    const hex = hexColors[colorName] || '#fff';
+
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.radius, 0, 2 * Math.PI);
+    
+    // Filled styling
+    ctx.fillStyle = hex;
+    ctx.shadowBlur = 0;
+    
+    if (n.selected) {
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+      ctx.shadowColor = hex;
+      ctx.shadowBlur = 12;
+    } else if (n.highlighted) {
+      ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.shadowColor = hex;
+      ctx.shadowBlur = 6;
+    }
+    
+    ctx.fill();
+    ctx.shadowBlur = 0; // Reset shadow
+
+    // Text labels for selected or hovered nodes
+    const isHovered = (hoverNode === n);
+    if (n.selected || isHovered || transform.scale > 0.8) {
+      ctx.fillStyle = n.selected ? '#ffffff' : 'rgba(255,255,255,0.85)';
+      ctx.font = n.selected ? 'bold 11px Outfit' : '10px Outfit';
+      ctx.textAlign = 'center';
+      ctx.fillText(n.title, n.x, n.y - n.radius - 6);
+    }
+  });
+
+  ctx.restore();
+}
+
+function physicsLoop() {
+  updatePhysics();
+  drawGraph();
+  animationFrameId = requestAnimationFrame(physicsLoop);
+}
+
+// Canvas interactions
+let isDraggingViewport = false;
+let startMousePos = { x: 0, y: 0 };
+let startTransform = { x: 0, y: 0 };
+
+function getLocalMouse(e) {
+  const rect = canvas.getBoundingClientRect();
+  const rawX = e.clientX - rect.left - rect.width / 2;
+  const rawY = e.clientY - rect.top - rect.height / 2;
+  
+  // Back-project transform
+  return {
+    x: (rawX - transform.x) / transform.scale,
+    y: (rawY - transform.y) / transform.scale
+  };
+}
+
+function onMouseDown(e) {
+  const mouse = getLocalMouse(e);
+  
+  // Check if click hits a node
+  let hit = null;
+  for (let i = graphNodes.length - 1; i >= 0; i--) {
+    const n = graphNodes[i];
+    if (!n.visible) continue;
+    const dx = n.x - mouse.x;
+    const dy = n.y - mouse.y;
+    if (dx*dx + dy*dy <= (n.radius + 6)*(n.radius + 6)) {
+      hit = n;
+
+    }
+  }
+
+  if (hit) {
+    dragNode = hit;
+  } else {
+    isDraggingViewport = true;
+    startMousePos = { x: e.clientX, y: e.clientY };
+    startTransform = { ...transform };
+  }
+}
+
+function onMouseMove(e) {
+  const mouse = getLocalMouse(e);
+  
+  if (dragNode) {
+    dragNode.x = mouse.x;
+    dragNode.y = mouse.y;
+  } else if (isDraggingViewport) {
+    const dx = e.clientX - startMousePos.x;
+    const dy = e.clientY - startMousePos.y;
+    transform.x = startTransform.x + dx;
+    transform.y = startTransform.y + dy;
+  } else {
+    // Check hover
+    let hit = null;
+    for (let i = graphNodes.length - 1; i >= 0; i--) {
+      const n = graphNodes[i];
+      if (!n.visible) continue;
+      const dx = n.x - mouse.x;
+      const dy = n.y - mouse.y;
+      if (dx*dx + dy*dy <= (n.radius + 6)*(n.radius + 6)) {
+        hit = n;
+        break;
+      }
+    }
+    hoverNode = hit;
+  }
+}
+
+function onMouseUp(e) {
+  if (dragNode) {
+    // If drag didn't move far, treat it as a click / selection
+    selectNode(dragNode.id);
+    dragNode = null;
+  }
+  isDraggingViewport = false;
+}
+
+function onWheel(e) {
+  e.preventDefault();
+  const zoomFactor = 1.1;
+  if (e.deltaY < 0) {
+    transform.scale *= zoomFactor;
+  } else {
+    transform.scale /= zoomFactor;
+  }
+}
+</script>
+</body>
+</html>
+
