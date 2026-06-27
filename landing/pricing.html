@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Belief Deprogrammer | Personalized HD Deconditioning</title>
+<meta name="description" content="Transparent pricing for personalized Human Design belief deprogramming. Free instant workbook, premium deep-dive reports, and 1:1 transformation coaching. Find the tier that fits your journey.">
+<meta name="keywords" content="belief deprogramming, human design pricing, hd coaching cost, belief workbook, shadow work pricing">
+<meta property="og:title" content="Pricing — Belief Deprogrammer">
+<meta property="og:description" content="Choose your deconditioning depth. From a free instant workbook to 1:1 transformation coaching.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://master.belief-deprogrammer.pages.dev/pricing.html">
+<link rel="canonical" href="https://master.belief-deprogrammer.pages.dev/pricing.html">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #0a0a1a 100%);
+    color: #e0e0e0;
+    font-family: system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  nav {
+    padding: 20px 32px;
+    display: flex; gap: 32px; justify-content: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: rgba(10,10,26,0.85);
+    backdrop-filter: blur(12px);
+    position: sticky; top: 0; z-index: 100;
+  }
+  nav a {
+    color: #8a8a9f; text-decoration: none; font-size: 14px;
+    font-weight: 500; letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  nav a:hover, nav a.active { color: #00ffff; }
+  nav .brand { color: #00ffff; font-weight: 600; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
+  h1 {
+    font-size: 42px; font-weight: 700; color: #ffffff;
+    text-align: center; margin: 0 0 16px 0;
+    letter-spacing: -1px;
+  }
+  .subtitle {
+    text-align: center; color: #8a8a9f;
+    font-size: 18px; max-width: 640px; margin: 0 auto 60px;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 80px;
+  }
+  .tier {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 36px 28px;
+    display: flex; flex-direction: column;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .tier:hover { transform: translateY(-4px); border-color: rgba(0,255,255,0.3); }
+  .tier.featured {
+    border-color: #00ffff;
+    background: rgba(0,255,255,0.04);
+    box-shadow: 0 0 40px rgba(0,255,255,0.08);
+    position: relative;
+  }
+  .tier.featured::before {
+    content: 'MOST POPULAR';
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: #00ffff; color: #0a0a1a;
+    padding: 4px 16px; border-radius: 12px;
+    font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  }
+  .tier-name {
+    font-size: 14px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 2px;
+    color: #8a8a9f; margin-bottom: 8px;
+  }
+  .tier.featured .tier-name { color: #00ffff; }
+  .tier-price {
+    font-size: 48px; font-weight: 700; color: #ffffff;
+    margin: 8px 0 4px; letter-spacing: -1px;
+  }
+  .tier-price small {
+    font-size: 16px; font-weight: 400; color: #8a8a9f;
+  }
+  .tier-billing {
+    font-size: 13px; color: #8a8a9f; margin-bottom: 24px;
+  }
+  .tier-desc {
+    color: #c0c0d0; font-size: 14px;
+    margin-bottom: 24px; min-height: 42px;
+  }
+  .tier-features {
+    list-style: none; padding: 0; margin: 0 0 32px 0;
+    flex-grow: 1;
+  }
+  .tier-features li {
+    color: #c0c0d0; font-size: 14px;
+    padding: 8px 0 8px 24px;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .tier-features li::before {
+    content: '✓';
+    position: absolute; left: 0; color: #00ff55;
+    font-weight: 700;
+  }
+  .cta-btn {
+    display: block; width: 100%;
+    padding: 14px;
+    background: rgba(0,255,255,0.1);
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    border-radius: 8px;
+    font-size: 15px; font-weight: 600;
+    text-align: center; text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .cta-btn:hover { background: #00ffff; color: #0a0a1a; }
+  .cta-btn.solid { background: #00ffff; color: #0a0a1a; }
+  .cta-btn.solid:hover { background: #00dddd; }
+
+  .faq {
+    max-width: 720px; margin: 0 auto;
+  }
+  .faq h2 {
+    text-align: center; color: #ffffff;
+    font-size: 32px; margin-bottom: 40px;
+  }
+  .faq-item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 18px 24px;
+    color: #ffffff; font-weight: 600; font-size: 16px;
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    user-select: none;
+  }
+  .faq-q::after {
+    content: '+'; color: #00ffff; font-size: 24px; font-weight: 300;
+    transition: transform 0.2s;
+  }
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    color: #c0c0d0; font-size: 14px;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 24px;
+  }
+  .faq-item.open .faq-a {
+    max-height: 400px;
+    padding: 0 24px 20px;
+  }
+
+  .guarantee {
+    margin: 80px auto 0;
+    max-width: 720px;
+    text-align: center;
+    padding: 32px;
+    background: rgba(0,255,255,0.03);
+    border: 1px solid rgba(0,255,255,0.15);
+    border-radius: 12px;
+  }
+  .guarantee h3 { color: #00ffff; margin-top: 0; }
+  .guarantee p { color: #c0c0d0; font-size: 15px; }
+
+  footer {
+    text-align: center; padding: 40px 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    color: #8a8a9f; font-size: 13px;
+  }
+  footer a { color: #00ffff; text-decoration: none; margin: 0 12px; }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 32px; }
+    .container { padding: 40px 16px; }
+    nav { gap: 16px; padding: 16px; flex-wrap: wrap; }
+    nav a { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="brand">⬢ Belief Deprogrammer</a>
+  <a href="/features.html">Features</a>
+  <a href="/how-it-works.html">How It Works</a>
+  <a href="/pricing.html" class="active">Pricing</a>
+  <a href="/research.html">Research</a>
+  <a href="/discover.html">Discover</a>
+  <a href="/">Generate</a>
+</nav>
+
+<div class="container">
+  <h1>Choose Your Depth of Deconditioning</h1>
+  <p class="subtitle">Every tier uses the same gate-aware engine that maps your open Human Design centers to specific limiting beliefs. Pick what fits your timeline and commitment.</p>
+
+  <div class="pricing-grid">
+
+    <!-- FREE TIER -->
+    <div class="tier">
+      <div class="tier-name">Free Reset</div>
+      <div class="tier-price">$0<small></small></div>
+      <div class="tier-billing">Forever free · No credit card</div>
+      <div class="tier-desc">A complete, personalized workbook generated instantly in your browser.</div>
+      <ul class="tier-features">
+        <li>~50 core belief pairs (Quick Reset)</li>
+        <li>Open-center &amp; gate-aware mapping</li>
+        <li>Downloadable as Markdown</li>
+        <li>Instant generation, no signup</li>
+        <li>HD Type, Authority, Profile context</li>
+      </ul>
+      <a href="/" class="cta-btn">Generate Now →</a>
+    </div>
+
+    <!-- CORE TIER -->
+    <div class="tier featured">
+      <div class="tier-name">Comprehensive</div>
+      <div class="tier-price">$27<small></small></div>
+      <div class="tier-billing">One-time payment · Lifetime access</div>
+      <div class="tier-desc">The full deconditioning system: ~200 belief pairs across every open center and activated gate.</div>
+      <ul class="tier-features">
+        <li>~200 deep belief pairs (Comprehensive tier)</li>
+        <li>Gate-level specificity, not just center-level</li>
+        <li>PDF + Markdown + plain-text downloads</li>
+        <li>Channel activations &amp; incarnation crosses</li>
+        <li>Re-generate after major life shifts</li>
+        <li>Email support · 7-day response</li>
+      </ul>
+      <a href="/?tier=comprehensive" class="cta-btn solid">Get My Full Workbook →</a>
+    </div>
+
+    <!-- PREMIUM TIER -->
+    <div class="tier">
+      <div class="tier-name">1:1 Transformation</div>
+      <div class="tier-price">$497<small></small></div>
+      <div class="tier-billing">3-month coaching · Payment plans available</div>
+      <div class="tier-desc">A comprehensive workbook PLUS three months of weekly coaching sessions to walk the reprogramming path with a guide.</div>
+      <ul class="tier-features">
+        <li>Everything in Comprehensive</li>
+        <li>3-month 1:1 coaching (12 sessions)</li>
+        <li>Personalized deconditioning protocol</li>
+        <li>Weekly embodiment practices</li>
+        <li>Direct message access between sessions</li>
+        <li>BodyGraph reading &amp; strategy coaching</li>
+        <li>Satisfaction guarantee</li>
+      </ul>
+      <a href="mailto:hello@beliefdeprogrammer.com?subject=1:1%20Transformation%20Inquiry" class="cta-btn">Apply for Coaching →</a>
+    </div>
+
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq">
+    <h2>Common Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">What's the difference between Quick Reset and Comprehensive?</div>
+      <div class="faq-a">Quick Reset generates ~50 core belief pairs covering your open centers at a high level. Comprehensive goes gate-by-gate, generating ~200 deeply-specific pairs tailored to every activated gate in your chart. Most people start with Comprehensive because the specificity is where the transformation lives.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Do I need to know Human Design to use this?</div>
+      <div class="faq-a">No. The generator uses your birth data to compute your BodyGraph internally. The workbook explains each section in plain language — you don't need any prior HD knowledge. If you're already a student of HD, the gate-level specificity will go deeper than most chart-reading apps.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How is this different from a generic affirmation app?</div>
+      <div class="faq-a">Generic affirmations aren't rooted in your specific conditioning. Belief Deprogrammer maps each open center in your chart to the specific limiting belief that open center amplifies, then pairs it with the embodied truth for your activated gates. The specificity is what makes the work land.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Is my birth data private?</div>
+      <div class="faq-a">Yes. Birth data is used only to compute your BodyGraph in real time and is never stored, logged, or shared. The generator is stateless — your data lives only in your browser session.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What if I'm not satisfied?</div>
+      <div class="faq-a">The Comprehensive workbook comes with a 30-day satisfaction guarantee. If the workbook doesn't resonate with your design, email us within 30 days for a full refund. The 1:1 coaching tier includes a complementary discovery session first so you can decide if the fit is right before committing.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I re-generate after a major life event?</div>
+      <div class="faq-a">Yes. Comprehensive tier includes lifetime re-generations. Your birth data doesn't change, but your embodied awareness does — running a fresh workbook after a Saturn return, a relationship shift, or a spiritual opening often reveals new layers.</div>
+    </div>
+  </div>
+
+  <!-- GUARANTEE -->
+  <div class="guarantee">
+    <h3>30-Day Satisfaction Guarantee</h3>
+    <p>If the Comprehensive workbook doesn't meet your expectations within 30 days of purchase, email us for a full refund. No friction, no interrogation. We built this to genuinely help, and we'll honor that.</p>
+  </div>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Generate</a> ·
+    <a href="/features.html">Features</a> ·
+    <a href="/how-it-works.html">How It Works</a> ·
+    <a href="/research.html">Research</a> ·
+    <a href="/sources.html">Sources</a> ·
+    <a href="/discover.html">Discover</a>
+  </p>
+  <p>&copy; 2026 Belief Deprogrammer · <a href="mailto:hello@beliefdeprogrammer.com">hello@beliefdeprogrammer.com</a></p>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    item.classList.toggle('open');
+  });
+});
+
+// JSON-LD: Product + FAQPage schema for SEO
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Belief Deprogrammer Comprehensive Workbook",
+  "description": "Personalized Human Design gate-aware belief deprogramming workbook with ~200 specific belief pairs.",
+  "brand": {"@type": "Brand", "name": "Belief Deprogrammer"},
+  "offers": {
+    "@type": "Offer",
+    "price": "27.00",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  }
+};
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": Array.from(document.querySelectorAll('.faq-item')).map(item => ({
+    "@type": "Question",
+    "name": item.querySelector('.faq-q').textContent,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.querySelector('.faq-a').textContent.trim()
+    }
+  }))
+};
+const ld = document.createElement('script');
+ld.type = 'application/ld+json';
+ld.text = JSON.stringify([productSchema, faqSchema]);
+document.head.appendChild(ld);
+</script>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works — Belief Deprogrammer</title>
+<meta name="description" content="From birth data to personalized deconditioning workbook in 4 steps. Learn how Belief Deprogrammer maps your Human Design chart to specific limiting beliefs and embodiment practices.">
+<meta name="keywords" content="how does belief deprogramming work, human design bodygraph, gate mapping, conditioning pattern, embodiment practice">
+<meta property="og:title" content="How It Works — Belief Deprogrammer">
+<meta property="og:description" content="4 steps from birth data to a personalized deconditioning workbook.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://master.belief-deprogrammer.pages.dev/how-it-works.html">
+<link rel="canonical" href="https://master.belief-deprogrammer.pages.dev/how-it-works.html">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #0a0a1a 100%);
+    color: #e0e0e0;
+    font-family: system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    line-height: 1.7;
+  }
+  nav {
+    padding: 20px 32px;
+    display: flex; gap: 32px; justify-content: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: rgba(10,10,26,0.85);
+    backdrop-filter: blur(12px);
+    position: sticky; top: 0; z-index: 100;
+  }
+  nav a {
+    color: #8a8a9f; text-decoration: none; font-size: 14px;
+    font-weight: 500; letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  nav a:hover, nav a.active { color: #00ffff; }
+  nav .brand { color: #00ffff; font-weight: 600; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
+  h1 {
+    font-size: 42px; font-weight: 700; color: #ffffff;
+    text-align: center; margin: 0 0 16px 0; letter-spacing: -1px;
+  }
+  .subtitle {
+    text-align: center; color: #8a8a9f;
+    font-size: 18px; max-width: 640px; margin: 0 auto 60px;
+  }
+
+  .step {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 36px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .step-num {
+    font-size: 56px; font-weight: 700;
+    background: linear-gradient(135deg, #00ffff, #0088ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .step h2 {
+    color: #ffffff; font-size: 24px; margin: 0 0 12px 0;
+  }
+  .step p {
+    color: #c0c0d0; font-size: 16px; margin: 0 0 16px 0;
+  }
+  .step ul { color: #c0c0d0; padding-left: 20px; }
+  .step li { margin-bottom: 6px; }
+  .step-detail {
+    background: rgba(0,255,255,0.04);
+    border-left: 3px solid #00ffff;
+    padding: 16px 20px;
+    margin-top: 16px;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    color: #c0c0d0;
+  }
+  .step-detail strong { color: #00ffff; }
+
+  .timeline {
+    text-align: center;
+    margin: 80px 0 60px;
+  }
+  .timeline h2 { color: #ffffff; font-size: 32px; margin-bottom: 16px; }
+  .timeline p { color: #c0c0d0; max-width: 640px; margin: 0 auto; }
+
+  .science {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 48px;
+    margin: 60px 0;
+  }
+  .science h2 { color: #ffffff; font-size: 28px; margin: 0 0 16px 0; }
+  .science p { color: #c0c0d0; font-size: 15px; margin: 0 0 16px 0; }
+  .science-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 32px;
+  }
+  .science-card {
+    background: rgba(0,255,255,0.03);
+    border: 1px solid rgba(0,255,255,0.1);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .science-card h4 {
+    color: #00ffff; font-size: 14px;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin: 0 0 8px 0;
+  }
+  .science-card p {
+    color: #c0c0d0; font-size: 14px; margin: 0;
+  }
+  .science-card a {
+    color: #00ffff; text-decoration: none;
+    font-size: 13px; display: inline-block; margin-top: 8px;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, rgba(0,255,255,0.08), rgba(0,255,255,0.02));
+    border: 1px solid rgba(0,255,255,0.2);
+    border-radius: 12px;
+    padding: 48px;
+    text-align: center;
+    margin: 60px 0;
+  }
+  .cta-section h2 { color: #ffffff; margin: 0 0 12px; font-size: 32px; }
+  .cta-section p { color: #c0c0d0; margin: 0 0 28px; font-size: 16px; }
+  .cta-btn {
+    display: inline-block;
+    padding: 16px 36px;
+    background: #00ffff; color: #0a0a1a;
+    border-radius: 8px;
+    font-size: 16px; font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .cta-btn:hover { background: #00dddd; }
+
+  footer {
+    text-align: center; padding: 40px 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    color: #8a8a9f; font-size: 13px;
+  }
+  footer a { color: #00ffff; text-decoration: none; margin: 0 12px; }
+
+  @media (max-width: 640px) {
+    .step { grid-template-columns: 1fr; gap: 16px; padding: 24px; }
+    .step-num { font-size: 42px; }
+    h1 { font-size: 32px; }
+    nav { gap: 16px; padding: 16px; flex-wrap: wrap; }
+    nav a { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="brand">⬢ Belief Deprogrammer</a>
+  <a href="/features.html">Features</a>
+  <a href="/how-it-works.html" class="active">How It Works</a>
+  <a href="/pricing.html">Pricing</a>
+  <a href="/research.html">Research</a>
+  <a href="/discover.html">Discover</a>
+  <a href="/">Generate</a>
+</nav>
+
+<div class="container">
+  <h1>From Birth Data to Personalized Workbook</h1>
+  <p class="subtitle">Four steps. Two minutes. A workbook written specifically for the design you came in with.</p>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-num">01</div>
+    <div>
+      <h2>Enter Your Birth Data</h2>
+      <p>Date, time, and location of birth. These three pieces of information are enough to compute your full Human Design BodyGraph — your Type, Strategy, Authority, Profile, all 9 Centers, all 36 Channels, all activated Gates, and your Incarnation Cross.</p>
+      <ul>
+        <li>Most accurate with birth time (from birth certificate or family memory)</li>
+        <li>Birth location determines your exact planetary positions</li>
+        <li>Privacy-first: data is never stored, only used to compute in real-time</li>
+      </ul>
+      <div class="step-detail">
+        <strong>What you don't need:</strong> any prior Human Design knowledge. The workbook explains everything in plain language as you read.
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-num">02</div>
+    <div>
+      <h2>The Engine Computes Your BodyGraph</h2>
+      <p>Your birth data is sent to the Belief Deprogrammer API, which calls the Human Design Engine to compute your complete chart in real time. The result is a structured graph of your design — which centers are defined, which are open, which gates are activated, and which channels are complete.</p>
+      <ul>
+        <li>Birth data → planetary positions (via standard ephemeris)</li>
+        <li>Positions → gate activations (Human Design's I-Ching wheel)</li>
+        <li>Gate activations → center definitions &amp; channel completions</li>
+        <li>Full chart → passed to the gate-aware belief generator</li>
+      </ul>
+      <div class="step-detail">
+        <strong>Stateless by design:</strong> the API receives your birth data, computes the workbook, returns it. Nothing is logged, stored, or shared. Your chart lives only in your browser session.
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-num">03</div>
+    <div>
+      <h2>The Generator Maps Beliefs to Your Specific Design</h2>
+      <p>For every open center in your chart, the generator surfaces the conditioning pattern that open center amplifies. For every activated gate, it surfaces the specific belief and the embodied truth. The result is a workbook that couldn't be written for anyone else — because no one else has your combination.</p>
+      <ul>
+        <li><strong>Open centers</strong> → the wisdom-portal and the conditioning it amplifies</li>
+        <li><strong>Activated gates</strong> → the specific limiting belief + the embodied truth</li>
+        <li><strong>Complete channels</strong> → the theme and a weekly practice sequence</li>
+        <li><strong>Type, Authority, Profile</strong> → contextual framing throughout</li>
+      </ul>
+      <div class="step-detail">
+        <strong>Two depth tiers:</strong> Quick Reset (~50 belief pairs) for a high-level overview. Comprehensive (~200 belief pairs) for the full gate-by-gate deconditioning path.
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-num">04</div>
+    <div>
+      <h2>Read, Practice, Integrate</h2>
+      <p>Your workbook is ready in seconds. Download it as Markdown for editing, plain text for journaling, or paste into Notion. Read one belief pair a day. Practice the embodiment prompt. Notice the patterns. Return to it after major life shifts for a fresh layer.</p>
+      <ul>
+        <li>Read one belief + truth pair per day</li>
+        <li>Sit with the embodiment prompt for a week</li>
+        <li>Journal what arises — body reactions, dream images, recurring thoughts</li>
+        <li>After 90 days, regenerate and notice what's shifted</li>
+      </ul>
+      <div class="step-detail">
+        <strong>Embodiment, not just insight:</strong> insight alone doesn't rewire anything. The workbook pairs every belief with a body-based practice so the new pattern can land in your nervous system, not just your mind.
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="timeline">
+    <h2>What A Typical Journey Looks Like</h2>
+  </div>
+
+  <div class="step">
+    <div class="step-num">📅</div>
+    <div>
+      <h2>Day 1: Generate &amp; Read</h2>
+      <p>You generate your workbook, read through the first 5-10 belief pairs, and notice which ones land hardest. Those are your entry points.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">📅</div>
+    <div>
+      <h2>Week 1-2: Identify the Active Pattern</h2>
+      <p>One belief pair per day, journaled. Notice what triggers the old pattern in real-time — situations, people, body sensations.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">📅</div>
+    <div>
+      <h2>Week 3-6: Practice the New Pattern</h2>
+      <p>Use the embodiment prompts. Catch the old pattern. Practice the new response. Small, daily, embodied repetitions.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">📅</div>
+    <div>
+      <h2>Week 7-12: Regenerate &amp; Go Deeper</h2>
+      <p>After 90 days, regenerate your workbook. The conditioning patterns that were loud before are often softer. New layers surface. Repeat the cycle.</p>
+    </div>
+  </div>
+
+  <!-- SCIENCE -->
+  <div class="science">
+    <h2>The Science Underneath</h2>
+    <p>Belief Deprogrammer isn't a replacement for therapy — it's a complement. The methodology sits at the intersection of three research areas, each grounded in peer-reviewed work.</p>
+
+    <div class="science-grid">
+      <div class="science-card">
+        <h4>Memory Reconsolidation</h4>
+        <p>Bruce Ecker, Robin Ticic, Laurel Hulley — when an emotional memory is reactivated in a context that disconfirms it, the memory becomes temporarily plastic. New information can be encoded in the same window.</p>
+        <a href="/sources.html#memory-reconsolidation">Read sources →</a>
+      </div>
+      <div class="science-card">
+        <h4>Somatic Intelligence</h4>
+        <p>Bessel van der Kolk, Peter Levine, Resmaa Menakem — trauma and limiting beliefs are stored in the body, not just the mind. Body-based cues are how we catch patterns in real-time.</p>
+        <a href="/sources.html#somatic">Read sources →</a>
+      </div>
+      <div class="science-card">
+        <h4>Epigenetics</h4>
+        <p>Bruce Lipton, Joe Dispenza — gene expression responds to belief and perception. The body differentiates between a real threat and a remembered one only when the nervous system updates.</p>
+        <a href="/sources.html#epigenetics">Read sources →</a>
+      </div>
+      <div class="science-card">
+        <h4>ACT &amp; Defusion</h4>
+        <p>Steven Hayes, Russ Harris — Acceptance and Commitment Therapy's defusion techniques (observing a thought rather than being inside it) are core to the embodiment protocols.</p>
+        <a href="/sources.html#act">Read sources →</a>
+      </div>
+      <div class="science-card">
+        <h4>Parts Work</h4>
+        <p>Richard Schwartz (IFS), Bradley Nelson (EFT/tapping) — the workbook treats each limiting belief as a protective part with a positive intention. Working with the part, not against it.</p>
+        <a href="/sources.html#parts-work">Read sources →</a>
+      </div>
+      <div class="science-card">
+        <h4>Cognitive Flexibility</h4>
+        <p>Diana Deutsch, George Lakoff — reframing a belief requires experiencing an alternative, not just being told. Each workbook pair gives the alternative a body-based practice.</p>
+        <a href="/sources.html#cogflex">Read sources →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Try it free in 2 minutes</h2>
+    <p>No signup. No credit card. Your birth data stays in your browser.</p>
+    <a href="/" class="cta-btn">Generate My Free Workbook →</a>
+  </div>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Generate</a> ·
+    <a href="/features.html">Features</a> ·
+    <a href="/how-it-works.html">How It Works</a> ·
+    <a href="/pricing.html">Pricing</a> ·
+    <a href="/research.html">Research</a> ·
+    <a href="/sources.html">Sources</a> ·
+    <a href="/discover.html">Discover</a>
+  </p>
+  <p>&copy; 2026 Belief Deprogrammer</p>
+</footer>
+
+<script>
+// JSON-LD: HowTo schema for SEO
+const howtoSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Generate a Personalized Belief Deprogramming Workbook",
+  "description": "Four steps to go from birth data to a personalized deconditioning workbook using Belief Deprogrammer.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Enter your birth data",
+      "text": "Provide your date, time, and location of birth."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "The engine computes your BodyGraph",
+      "text": "Your birth data is used to compute your complete Human Design chart in real-time."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "The generator maps beliefs to your design",
+      "text": "Open centers and activated gates are mapped to specific limiting beliefs and embodied truths."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Read, practice, integrate",
+      "text": "Read one belief pair per day, practice the embodiment prompt, and regenerate after 90 days."
+    }
+  ],
+  "totalTime": "PT2M"
+};
+const ld = document.createElement('script');
+ld.type = 'application/ld+json';
+ld.text = JSON.stringify(howtoSchema);
+document.head.appendChild(ld);
+</script>
+</body>
+</html>
